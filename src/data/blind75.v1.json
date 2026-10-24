@@ -1,0 +1,1131 @@
+{
+  "schemaVersion": 1,
+  "seedVersion": "2026-10-24",
+  "problems": [
+    {
+      "id": "lc-217",
+      "lcNumber": 217,
+      "title": "Contains Duplicate",
+      "slug": "contains-duplicate",
+      "difficulty": "easy",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 1,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/contains-duplicate/",
+      "neetcodeUrl": "https://neetcode.io/solutions/contains-duplicate"
+    },
+    {
+      "id": "lc-242",
+      "lcNumber": 242,
+      "title": "Valid Anagram",
+      "slug": "valid-anagram",
+      "difficulty": "easy",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 2,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/valid-anagram/",
+      "neetcodeUrl": "https://neetcode.io/solutions/valid-anagram"
+    },
+    {
+      "id": "lc-1",
+      "lcNumber": 1,
+      "title": "Two Sum",
+      "slug": "two-sum",
+      "difficulty": "easy",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 3,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/two-sum/",
+      "neetcodeUrl": "https://neetcode.io/solutions/two-sum"
+    },
+    {
+      "id": "lc-49",
+      "lcNumber": 49,
+      "title": "Group Anagrams",
+      "slug": "group-anagrams",
+      "difficulty": "medium",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 4,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/group-anagrams/",
+      "neetcodeUrl": "https://neetcode.io/solutions/group-anagrams"
+    },
+    {
+      "id": "lc-347",
+      "lcNumber": 347,
+      "title": "Top K Frequent Elements",
+      "slug": "top-k-frequent-elements",
+      "difficulty": "medium",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 5,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/top-k-frequent-elements/",
+      "neetcodeUrl": "https://neetcode.io/solutions/top-k-frequent-elements"
+    },
+    {
+      "id": "lc-271",
+      "lcNumber": 271,
+      "title": "Encode and Decode Strings",
+      "slug": "encode-and-decode-strings",
+      "difficulty": "medium",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 6,
+      "premium": true,
+      "leetcodeUrl": "https://leetcode.com/problems/encode-and-decode-strings/",
+      "neetcodeUrl": "https://neetcode.io/solutions/encode-and-decode-strings"
+    },
+    {
+      "id": "lc-238",
+      "lcNumber": 238,
+      "title": "Product of Array Except Self",
+      "slug": "product-of-array-except-self",
+      "difficulty": "medium",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 7,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/product-of-array-except-self/",
+      "neetcodeUrl": "https://neetcode.io/solutions/product-of-array-except-self"
+    },
+    {
+      "id": "lc-128",
+      "lcNumber": 128,
+      "title": "Longest Consecutive Sequence",
+      "slug": "longest-consecutive-sequence",
+      "difficulty": "medium",
+      "category": "Arrays & Hashing",
+      "lists": [
+        "blind75"
+      ],
+      "order": 8,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/longest-consecutive-sequence/",
+      "neetcodeUrl": "https://neetcode.io/solutions/longest-consecutive-sequence"
+    },
+    {
+      "id": "lc-125",
+      "lcNumber": 125,
+      "title": "Valid Palindrome",
+      "slug": "valid-palindrome",
+      "difficulty": "easy",
+      "category": "Two Pointers",
+      "lists": [
+        "blind75"
+      ],
+      "order": 9,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/valid-palindrome/",
+      "neetcodeUrl": "https://neetcode.io/solutions/valid-palindrome"
+    },
+    {
+      "id": "lc-15",
+      "lcNumber": 15,
+      "title": "3Sum",
+      "slug": "3sum",
+      "difficulty": "medium",
+      "category": "Two Pointers",
+      "lists": [
+        "blind75"
+      ],
+      "order": 10,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/3sum/",
+      "neetcodeUrl": "https://neetcode.io/solutions/3sum"
+    },
+    {
+      "id": "lc-11",
+      "lcNumber": 11,
+      "title": "Container With Most Water",
+      "slug": "container-with-most-water",
+      "difficulty": "medium",
+      "category": "Two Pointers",
+      "lists": [
+        "blind75"
+      ],
+      "order": 11,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/container-with-most-water/",
+      "neetcodeUrl": "https://neetcode.io/solutions/container-with-most-water"
+    },
+    {
+      "id": "lc-121",
+      "lcNumber": 121,
+      "title": "Best Time to Buy And Sell Stock",
+      "slug": "best-time-to-buy-and-sell-stock",
+      "difficulty": "easy",
+      "category": "Sliding Window",
+      "lists": [
+        "blind75"
+      ],
+      "order": 12,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "neetcodeUrl": "https://neetcode.io/solutions/best-time-to-buy-and-sell-stock"
+    },
+    {
+      "id": "lc-3",
+      "lcNumber": 3,
+      "title": "Longest Substring Without Repeating Characters",
+      "slug": "longest-substring-without-repeating-characters",
+      "difficulty": "medium",
+      "category": "Sliding Window",
+      "lists": [
+        "blind75"
+      ],
+      "order": 13,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "neetcodeUrl": "https://neetcode.io/solutions/longest-substring-without-repeating-characters"
+    },
+    {
+      "id": "lc-424",
+      "lcNumber": 424,
+      "title": "Longest Repeating Character Replacement",
+      "slug": "longest-repeating-character-replacement",
+      "difficulty": "medium",
+      "category": "Sliding Window",
+      "lists": [
+        "blind75"
+      ],
+      "order": 14,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+      "neetcodeUrl": "https://neetcode.io/solutions/longest-repeating-character-replacement"
+    },
+    {
+      "id": "lc-76",
+      "lcNumber": 76,
+      "title": "Minimum Window Substring",
+      "slug": "minimum-window-substring",
+      "difficulty": "hard",
+      "category": "Sliding Window",
+      "lists": [
+        "blind75"
+      ],
+      "order": 15,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/minimum-window-substring/",
+      "neetcodeUrl": "https://neetcode.io/solutions/minimum-window-substring"
+    },
+    {
+      "id": "lc-153",
+      "lcNumber": 153,
+      "title": "Find Minimum In Rotated Sorted Array",
+      "slug": "find-minimum-in-rotated-sorted-array",
+      "difficulty": "medium",
+      "category": "Binary Search",
+      "lists": [
+        "blind75"
+      ],
+      "order": 16,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+      "neetcodeUrl": "https://neetcode.io/solutions/find-minimum-in-rotated-sorted-array"
+    },
+    {
+      "id": "lc-33",
+      "lcNumber": 33,
+      "title": "Search In Rotated Sorted Array",
+      "slug": "search-in-rotated-sorted-array",
+      "difficulty": "medium",
+      "category": "Binary Search",
+      "lists": [
+        "blind75"
+      ],
+      "order": 17,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "neetcodeUrl": "https://neetcode.io/solutions/search-in-rotated-sorted-array"
+    },
+    {
+      "id": "lc-206",
+      "lcNumber": 206,
+      "title": "Reverse Linked List",
+      "slug": "reverse-linked-list",
+      "difficulty": "easy",
+      "category": "Linked List",
+      "lists": [
+        "blind75"
+      ],
+      "order": 18,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/reverse-linked-list/",
+      "neetcodeUrl": "https://neetcode.io/solutions/reverse-linked-list"
+    },
+    {
+      "id": "lc-21",
+      "lcNumber": 21,
+      "title": "Merge Two Sorted Lists",
+      "slug": "merge-two-sorted-lists",
+      "difficulty": "easy",
+      "category": "Linked List",
+      "lists": [
+        "blind75"
+      ],
+      "order": 19,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "neetcodeUrl": "https://neetcode.io/solutions/merge-two-sorted-lists"
+    },
+    {
+      "id": "lc-141",
+      "lcNumber": 141,
+      "title": "Linked List Cycle",
+      "slug": "linked-list-cycle",
+      "difficulty": "easy",
+      "category": "Linked List",
+      "lists": [
+        "blind75"
+      ],
+      "order": 20,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/linked-list-cycle/",
+      "neetcodeUrl": "https://neetcode.io/solutions/linked-list-cycle"
+    },
+    {
+      "id": "lc-143",
+      "lcNumber": 143,
+      "title": "Reorder List",
+      "slug": "reorder-list",
+      "difficulty": "medium",
+      "category": "Linked List",
+      "lists": [
+        "blind75"
+      ],
+      "order": 21,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/reorder-list/",
+      "neetcodeUrl": "https://neetcode.io/solutions/reorder-list"
+    },
+    {
+      "id": "lc-19",
+      "lcNumber": 19,
+      "title": "Remove Nth Node From End of List",
+      "slug": "remove-nth-node-from-end-of-list",
+      "difficulty": "medium",
+      "category": "Linked List",
+      "lists": [
+        "blind75"
+      ],
+      "order": 22,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+      "neetcodeUrl": "https://neetcode.io/solutions/remove-nth-node-from-end-of-list"
+    },
+    {
+      "id": "lc-23",
+      "lcNumber": 23,
+      "title": "Merge K Sorted Lists",
+      "slug": "merge-k-sorted-lists",
+      "difficulty": "hard",
+      "category": "Linked List",
+      "lists": [
+        "blind75"
+      ],
+      "order": 23,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/merge-k-sorted-lists/",
+      "neetcodeUrl": "https://neetcode.io/solutions/merge-k-sorted-lists"
+    },
+    {
+      "id": "lc-20",
+      "lcNumber": 20,
+      "title": "Valid Parentheses",
+      "slug": "valid-parentheses",
+      "difficulty": "easy",
+      "category": "Stack",
+      "lists": [
+        "blind75"
+      ],
+      "order": 24,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/valid-parentheses/",
+      "neetcodeUrl": "https://neetcode.io/solutions/valid-parentheses"
+    },
+    {
+      "id": "lc-226",
+      "lcNumber": 226,
+      "title": "Invert Binary Tree",
+      "slug": "invert-binary-tree",
+      "difficulty": "easy",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 25,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/invert-binary-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/invert-binary-tree"
+    },
+    {
+      "id": "lc-104",
+      "lcNumber": 104,
+      "title": "Maximum Depth of Binary Tree",
+      "slug": "maximum-depth-of-binary-tree",
+      "difficulty": "easy",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 26,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/maximum-depth-of-binary-tree"
+    },
+    {
+      "id": "lc-100",
+      "lcNumber": 100,
+      "title": "Same Tree",
+      "slug": "same-tree",
+      "difficulty": "easy",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 27,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/same-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/same-tree"
+    },
+    {
+      "id": "lc-572",
+      "lcNumber": 572,
+      "title": "Subtree of Another Tree",
+      "slug": "subtree-of-another-tree",
+      "difficulty": "easy",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 28,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/subtree-of-another-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/subtree-of-another-tree"
+    },
+    {
+      "id": "lc-235",
+      "lcNumber": 235,
+      "title": "Lowest Common Ancestor of a Binary Search Tree",
+      "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+      "difficulty": "medium",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 29,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/lowest-common-ancestor-of-a-binary-search-tree"
+    },
+    {
+      "id": "lc-102",
+      "lcNumber": 102,
+      "title": "Binary Tree Level Order Traversal",
+      "slug": "binary-tree-level-order-traversal",
+      "difficulty": "medium",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 30,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+      "neetcodeUrl": "https://neetcode.io/solutions/binary-tree-level-order-traversal"
+    },
+    {
+      "id": "lc-98",
+      "lcNumber": 98,
+      "title": "Validate Binary Search Tree",
+      "slug": "validate-binary-search-tree",
+      "difficulty": "medium",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 31,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/validate-binary-search-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/validate-binary-search-tree"
+    },
+    {
+      "id": "lc-230",
+      "lcNumber": 230,
+      "title": "Kth Smallest Element In a Bst",
+      "slug": "kth-smallest-element-in-a-bst",
+      "difficulty": "medium",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 32,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+      "neetcodeUrl": "https://neetcode.io/solutions/kth-smallest-element-in-a-bst"
+    },
+    {
+      "id": "lc-105",
+      "lcNumber": 105,
+      "title": "Construct Binary Tree From Preorder And Inorder Traversal",
+      "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+      "difficulty": "medium",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 33,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+      "neetcodeUrl": "https://neetcode.io/solutions/construct-binary-tree-from-preorder-and-inorder-traversal"
+    },
+    {
+      "id": "lc-124",
+      "lcNumber": 124,
+      "title": "Binary Tree Maximum Path Sum",
+      "slug": "binary-tree-maximum-path-sum",
+      "difficulty": "hard",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 34,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+      "neetcodeUrl": "https://neetcode.io/solutions/binary-tree-maximum-path-sum"
+    },
+    {
+      "id": "lc-297",
+      "lcNumber": 297,
+      "title": "Serialize And Deserialize Binary Tree",
+      "slug": "serialize-and-deserialize-binary-tree",
+      "difficulty": "hard",
+      "category": "Trees",
+      "lists": [
+        "blind75"
+      ],
+      "order": 35,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/serialize-and-deserialize-binary-tree"
+    },
+    {
+      "id": "lc-208",
+      "lcNumber": 208,
+      "title": "Implement Trie Prefix Tree",
+      "slug": "implement-trie-prefix-tree",
+      "difficulty": "medium",
+      "category": "Tries",
+      "lists": [
+        "blind75"
+      ],
+      "order": 36,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/implement-trie-prefix-tree"
+    },
+    {
+      "id": "lc-211",
+      "lcNumber": 211,
+      "title": "Design Add And Search Words Data Structure",
+      "slug": "design-add-and-search-words-data-structure",
+      "difficulty": "medium",
+      "category": "Tries",
+      "lists": [
+        "blind75"
+      ],
+      "order": 37,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+      "neetcodeUrl": "https://neetcode.io/solutions/design-add-and-search-words-data-structure"
+    },
+    {
+      "id": "lc-212",
+      "lcNumber": 212,
+      "title": "Word Search II",
+      "slug": "word-search-ii",
+      "difficulty": "hard",
+      "category": "Tries",
+      "lists": [
+        "blind75"
+      ],
+      "order": 38,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/word-search-ii/",
+      "neetcodeUrl": "https://neetcode.io/solutions/word-search-ii"
+    },
+    {
+      "id": "lc-39",
+      "lcNumber": 39,
+      "title": "Combination Sum",
+      "slug": "combination-sum",
+      "difficulty": "medium",
+      "category": "Backtracking",
+      "lists": [
+        "blind75"
+      ],
+      "order": 39,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/combination-sum/",
+      "neetcodeUrl": "https://neetcode.io/solutions/combination-sum"
+    },
+    {
+      "id": "lc-79",
+      "lcNumber": 79,
+      "title": "Word Search",
+      "slug": "word-search",
+      "difficulty": "medium",
+      "category": "Backtracking",
+      "lists": [
+        "blind75"
+      ],
+      "order": 40,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/word-search/",
+      "neetcodeUrl": "https://neetcode.io/solutions/word-search"
+    },
+    {
+      "id": "lc-295",
+      "lcNumber": 295,
+      "title": "Find Median From Data Stream",
+      "slug": "find-median-from-data-stream",
+      "difficulty": "hard",
+      "category": "Heap / Priority Queue",
+      "lists": [
+        "blind75"
+      ],
+      "order": 41,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/find-median-from-data-stream/",
+      "neetcodeUrl": "https://neetcode.io/solutions/find-median-from-data-stream"
+    },
+    {
+      "id": "lc-200",
+      "lcNumber": 200,
+      "title": "Number of Islands",
+      "slug": "number-of-islands",
+      "difficulty": "medium",
+      "category": "Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 42,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/number-of-islands/",
+      "neetcodeUrl": "https://neetcode.io/solutions/number-of-islands"
+    },
+    {
+      "id": "lc-133",
+      "lcNumber": 133,
+      "title": "Clone Graph",
+      "slug": "clone-graph",
+      "difficulty": "medium",
+      "category": "Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 43,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/clone-graph/",
+      "neetcodeUrl": "https://neetcode.io/solutions/clone-graph"
+    },
+    {
+      "id": "lc-417",
+      "lcNumber": 417,
+      "title": "Pacific Atlantic Water Flow",
+      "slug": "pacific-atlantic-water-flow",
+      "difficulty": "medium",
+      "category": "Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 44,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+      "neetcodeUrl": "https://neetcode.io/solutions/pacific-atlantic-water-flow"
+    },
+    {
+      "id": "lc-207",
+      "lcNumber": 207,
+      "title": "Course Schedule",
+      "slug": "course-schedule",
+      "difficulty": "medium",
+      "category": "Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 45,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/course-schedule/",
+      "neetcodeUrl": "https://neetcode.io/solutions/course-schedule"
+    },
+    {
+      "id": "lc-261",
+      "lcNumber": 261,
+      "title": "Graph Valid Tree",
+      "slug": "graph-valid-tree",
+      "difficulty": "medium",
+      "category": "Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 46,
+      "premium": true,
+      "leetcodeUrl": "https://leetcode.com/problems/graph-valid-tree/",
+      "neetcodeUrl": "https://neetcode.io/solutions/graph-valid-tree"
+    },
+    {
+      "id": "lc-323",
+      "lcNumber": 323,
+      "title": "Number of Connected Components In An Undirected Graph",
+      "slug": "number-of-connected-components-in-an-undirected-graph",
+      "difficulty": "medium",
+      "category": "Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 47,
+      "premium": true,
+      "leetcodeUrl": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/",
+      "neetcodeUrl": "https://neetcode.io/solutions/number-of-connected-components-in-an-undirected-graph"
+    },
+    {
+      "id": "lc-269",
+      "lcNumber": 269,
+      "title": "Alien Dictionary",
+      "slug": "alien-dictionary",
+      "difficulty": "hard",
+      "category": "Advanced Graphs",
+      "lists": [
+        "blind75"
+      ],
+      "order": 48,
+      "premium": true,
+      "leetcodeUrl": "https://leetcode.com/problems/alien-dictionary/",
+      "neetcodeUrl": "https://neetcode.io/solutions/alien-dictionary"
+    },
+    {
+      "id": "lc-70",
+      "lcNumber": 70,
+      "title": "Climbing Stairs",
+      "slug": "climbing-stairs",
+      "difficulty": "easy",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 49,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/climbing-stairs/",
+      "neetcodeUrl": "https://neetcode.io/solutions/climbing-stairs"
+    },
+    {
+      "id": "lc-198",
+      "lcNumber": 198,
+      "title": "House Robber",
+      "slug": "house-robber",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 50,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/house-robber/",
+      "neetcodeUrl": "https://neetcode.io/solutions/house-robber"
+    },
+    {
+      "id": "lc-213",
+      "lcNumber": 213,
+      "title": "House Robber II",
+      "slug": "house-robber-ii",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 51,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/house-robber-ii/",
+      "neetcodeUrl": "https://neetcode.io/solutions/house-robber-ii"
+    },
+    {
+      "id": "lc-5",
+      "lcNumber": 5,
+      "title": "Longest Palindromic Substring",
+      "slug": "longest-palindromic-substring",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 52,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "neetcodeUrl": "https://neetcode.io/solutions/longest-palindromic-substring"
+    },
+    {
+      "id": "lc-647",
+      "lcNumber": 647,
+      "title": "Palindromic Substrings",
+      "slug": "palindromic-substrings",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 53,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/palindromic-substrings/",
+      "neetcodeUrl": "https://neetcode.io/solutions/palindromic-substrings"
+    },
+    {
+      "id": "lc-91",
+      "lcNumber": 91,
+      "title": "Decode Ways",
+      "slug": "decode-ways",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 54,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/decode-ways/",
+      "neetcodeUrl": "https://neetcode.io/solutions/decode-ways"
+    },
+    {
+      "id": "lc-322",
+      "lcNumber": 322,
+      "title": "Coin Change",
+      "slug": "coin-change",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 55,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/coin-change/",
+      "neetcodeUrl": "https://neetcode.io/solutions/coin-change"
+    },
+    {
+      "id": "lc-152",
+      "lcNumber": 152,
+      "title": "Maximum Product Subarray",
+      "slug": "maximum-product-subarray",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 56,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/maximum-product-subarray/",
+      "neetcodeUrl": "https://neetcode.io/solutions/maximum-product-subarray"
+    },
+    {
+      "id": "lc-139",
+      "lcNumber": 139,
+      "title": "Word Break",
+      "slug": "word-break",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 57,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/word-break/",
+      "neetcodeUrl": "https://neetcode.io/solutions/word-break"
+    },
+    {
+      "id": "lc-300",
+      "lcNumber": 300,
+      "title": "Longest Increasing Subsequence",
+      "slug": "longest-increasing-subsequence",
+      "difficulty": "medium",
+      "category": "1-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 58,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/longest-increasing-subsequence/",
+      "neetcodeUrl": "https://neetcode.io/solutions/longest-increasing-subsequence"
+    },
+    {
+      "id": "lc-62",
+      "lcNumber": 62,
+      "title": "Unique Paths",
+      "slug": "unique-paths",
+      "difficulty": "medium",
+      "category": "2-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 59,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/unique-paths/",
+      "neetcodeUrl": "https://neetcode.io/solutions/unique-paths"
+    },
+    {
+      "id": "lc-1143",
+      "lcNumber": 1143,
+      "title": "Longest Common Subsequence",
+      "slug": "longest-common-subsequence",
+      "difficulty": "medium",
+      "category": "2-D Dynamic Programming",
+      "lists": [
+        "blind75"
+      ],
+      "order": 60,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/longest-common-subsequence/",
+      "neetcodeUrl": "https://neetcode.io/solutions/longest-common-subsequence"
+    },
+    {
+      "id": "lc-53",
+      "lcNumber": 53,
+      "title": "Maximum Subarray",
+      "slug": "maximum-subarray",
+      "difficulty": "medium",
+      "category": "Greedy",
+      "lists": [
+        "blind75"
+      ],
+      "order": 61,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/maximum-subarray/",
+      "neetcodeUrl": "https://neetcode.io/solutions/maximum-subarray"
+    },
+    {
+      "id": "lc-55",
+      "lcNumber": 55,
+      "title": "Jump Game",
+      "slug": "jump-game",
+      "difficulty": "medium",
+      "category": "Greedy",
+      "lists": [
+        "blind75"
+      ],
+      "order": 62,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/jump-game/",
+      "neetcodeUrl": "https://neetcode.io/solutions/jump-game"
+    },
+    {
+      "id": "lc-57",
+      "lcNumber": 57,
+      "title": "Insert Interval",
+      "slug": "insert-interval",
+      "difficulty": "medium",
+      "category": "Intervals",
+      "lists": [
+        "blind75"
+      ],
+      "order": 63,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/insert-interval/",
+      "neetcodeUrl": "https://neetcode.io/solutions/insert-interval"
+    },
+    {
+      "id": "lc-56",
+      "lcNumber": 56,
+      "title": "Merge Intervals",
+      "slug": "merge-intervals",
+      "difficulty": "medium",
+      "category": "Intervals",
+      "lists": [
+        "blind75"
+      ],
+      "order": 64,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/merge-intervals/",
+      "neetcodeUrl": "https://neetcode.io/solutions/merge-intervals"
+    },
+    {
+      "id": "lc-435",
+      "lcNumber": 435,
+      "title": "Non Overlapping Intervals",
+      "slug": "non-overlapping-intervals",
+      "difficulty": "medium",
+      "category": "Intervals",
+      "lists": [
+        "blind75"
+      ],
+      "order": 65,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/non-overlapping-intervals/",
+      "neetcodeUrl": "https://neetcode.io/solutions/non-overlapping-intervals"
+    },
+    {
+      "id": "lc-252",
+      "lcNumber": 252,
+      "title": "Meeting Rooms",
+      "slug": "meeting-rooms",
+      "difficulty": "easy",
+      "category": "Intervals",
+      "lists": [
+        "blind75"
+      ],
+      "order": 66,
+      "premium": true,
+      "leetcodeUrl": "https://leetcode.com/problems/meeting-rooms/",
+      "neetcodeUrl": "https://neetcode.io/solutions/meeting-rooms"
+    },
+    {
+      "id": "lc-253",
+      "lcNumber": 253,
+      "title": "Meeting Rooms II",
+      "slug": "meeting-rooms-ii",
+      "difficulty": "medium",
+      "category": "Intervals",
+      "lists": [
+        "blind75"
+      ],
+      "order": 67,
+      "premium": true,
+      "leetcodeUrl": "https://leetcode.com/problems/meeting-rooms-ii/",
+      "neetcodeUrl": "https://neetcode.io/solutions/meeting-rooms-ii"
+    },
+    {
+      "id": "lc-191",
+      "lcNumber": 191,
+      "title": "Number of 1 Bits",
+      "slug": "number-of-1-bits",
+      "difficulty": "easy",
+      "category": "Bit Manipulation",
+      "lists": [
+        "blind75"
+      ],
+      "order": 68,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/number-of-1-bits/",
+      "neetcodeUrl": "https://neetcode.io/solutions/number-of-1-bits"
+    },
+    {
+      "id": "lc-338",
+      "lcNumber": 338,
+      "title": "Counting Bits",
+      "slug": "counting-bits",
+      "difficulty": "easy",
+      "category": "Bit Manipulation",
+      "lists": [
+        "blind75"
+      ],
+      "order": 69,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/counting-bits/",
+      "neetcodeUrl": "https://neetcode.io/solutions/counting-bits"
+    },
+    {
+      "id": "lc-190",
+      "lcNumber": 190,
+      "title": "Reverse Bits",
+      "slug": "reverse-bits",
+      "difficulty": "easy",
+      "category": "Bit Manipulation",
+      "lists": [
+        "blind75"
+      ],
+      "order": 70,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/reverse-bits/",
+      "neetcodeUrl": "https://neetcode.io/solutions/reverse-bits"
+    },
+    {
+      "id": "lc-268",
+      "lcNumber": 268,
+      "title": "Missing Number",
+      "slug": "missing-number",
+      "difficulty": "easy",
+      "category": "Bit Manipulation",
+      "lists": [
+        "blind75"
+      ],
+      "order": 71,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/missing-number/",
+      "neetcodeUrl": "https://neetcode.io/solutions/missing-number"
+    },
+    {
+      "id": "lc-371",
+      "lcNumber": 371,
+      "title": "Sum of Two Integers",
+      "slug": "sum-of-two-integers",
+      "difficulty": "medium",
+      "category": "Bit Manipulation",
+      "lists": [
+        "blind75"
+      ],
+      "order": 72,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/sum-of-two-integers/",
+      "neetcodeUrl": "https://neetcode.io/solutions/sum-of-two-integers"
+    },
+    {
+      "id": "lc-48",
+      "lcNumber": 48,
+      "title": "Rotate Image",
+      "slug": "rotate-image",
+      "difficulty": "medium",
+      "category": "Math & Geometry",
+      "lists": [
+        "blind75"
+      ],
+      "order": 73,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/rotate-image/",
+      "neetcodeUrl": "https://neetcode.io/solutions/rotate-image"
+    },
+    {
+      "id": "lc-54",
+      "lcNumber": 54,
+      "title": "Spiral Matrix",
+      "slug": "spiral-matrix",
+      "difficulty": "medium",
+      "category": "Math & Geometry",
+      "lists": [
+        "blind75"
+      ],
+      "order": 74,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/spiral-matrix/",
+      "neetcodeUrl": "https://neetcode.io/solutions/spiral-matrix"
+    },
+    {
+      "id": "lc-73",
+      "lcNumber": 73,
+      "title": "Set Matrix Zeroes",
+      "slug": "set-matrix-zeroes",
+      "difficulty": "medium",
+      "category": "Math & Geometry",
+      "lists": [
+        "blind75"
+      ],
+      "order": 75,
+      "premium": false,
+      "leetcodeUrl": "https://leetcode.com/problems/set-matrix-zeroes/",
+      "neetcodeUrl": "https://neetcode.io/solutions/set-matrix-zeroes"
+    }
+  ]
+}

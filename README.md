@@ -1,0 +1,47 @@
+# Blind 75 Recall
+
+An iPhone-first, offline PWA for recalling coding patterns. **M1 only:** app shell, theme, versioned 75-problem seed and validation/tooling. Scheduling, persistence and product screens are not implemented yet.
+
+The source of truth is [the full build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf). Read the [M1–M6 plan and open decisions](docs/implementation-plan.md) and [seed verification notes](docs/seed-notes.md) before extending the app.
+
+## Run and check
+
+Requires Node.js 22.12+ (Node 24 recommended) and npm. Versions are pinned in `package-lock.json`.
+
+```sh
+npm ci
+npx playwright install chromium webkit
+npm run dev
+```
+
+- `npm run typecheck` — strict TypeScript, including tests and configuration.
+- `npm run lint` — ESLint and React Hooks rules; zero warnings allowed.
+- `npm test` — Vitest seed validation and regression checks.
+- `npm run build` — type-check, generate production PWA, enforce JS budget.
+- `npm run test:e2e` — Chromium and WebKit checks against an existing `dist/` build; launches its own preview server.
+- `npm run check` — lint, unit tests, build/type checks and browser tests.
+- `npm run preview` — serve production output locally; use this for offline testing. Development mode deliberately does not register a worker.
+
+The bundle gate conservatively sums every emitted JavaScript file gzipped individually, including service worker/Workbox, and requires **less than 150,000 bytes**.
+
+## Layout
+
+```text
+docs/              Original brief, milestone plan, seed audit, M1 verification
+public/            Manifest icons and SVG favicon source
+src/data/          Bundled JSON, runtime validation and unit tests
+src/domain/        UI-independent Problem types
+src/scheduler/     M2 boundary only (no implementation)
+src/storage/       M3 boundary only (no implementation)
+src/ui/            Minimal shell and shared CSS tokens
+tests/e2e/         Production PWA and viewport tests
+scripts/           Build-budget check
+```
+
+## Deploy and install
+
+For a root-path static host such as Netlify or Vercel: run `npm ci && npm run build`, publish `dist/`, and enable HTTPS. Serve `sw.js` and `index.html` with revalidation rather than immutable caching; hashed assets may be immutable. No backend, secrets, accounts or environment variables are required. Deployment itself is deferred to M6. Subpath hosting needs base/scope adjustments first.
+
+On iPhone, open the HTTPS deployment in Safari, choose **Share → Add to Home Screen → Add**, then launch the icon. After the first successful online load and worker activation, close and reopen offline to verify caching. New workers wait for existing windows to close, avoiding forced reloads during future reviews. Physical iPhone installation and safe-area/VoiceOver checks remain part of M6; desktop WebKit is only an automated approximation.
+
+The PNG icons are rasterizations of `public/favicon.svg`; the maskable variant uses a full dark background and inset artwork. Do not add remote fonts or icon libraries.

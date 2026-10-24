@@ -1,8 +1,8 @@
 # Blind 75 Recall
 
-An iPhone-first, offline PWA for recalling coding patterns. **M1 only:** app shell, theme, versioned 75-problem seed and validation/tooling. Scheduling, persistence and product screens are not implemented yet.
+An iPhone-first, offline PWA for recalling coding patterns. **M1 and M2:** app shell, theme, versioned 75-problem seed, pure scheduler/queue and validation/tooling. Persistence and product screens are not implemented yet.
 
-The source of truth is [the full build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf). Read the [M1–M6 plan and open decisions](docs/implementation-plan.md) and [seed verification notes](docs/seed-notes.md) before extending the app.
+The source of truth is [the full build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf), supplemented by the [approved scheduler decisions and amendments](docs/scheduler-decisions.md). Read the [M1–M6 plan](docs/implementation-plan.md) and [seed verification notes](docs/seed-notes.md) before extending the app.
 
 ## Run and check
 
@@ -16,7 +16,7 @@ npm run dev
 
 - `npm run typecheck` — strict TypeScript, including tests and configuration.
 - `npm run lint` — ESLint and React Hooks rules; zero warnings allowed.
-- `npm test` — Vitest seed validation and regression checks.
+- `npm test` — Vitest seed, scheduler, queue, calendar, preview and seeded 365-day simulation checks.
 - `npm run build` — type-check, generate production PWA, enforce JS budget.
 - `npm run test:e2e` — Chromium and WebKit checks against an existing `dist/` build; launches its own preview server.
 - `npm run check` — lint, unit tests, build/type checks and browser tests.
@@ -30,8 +30,8 @@ The bundle gate conservatively sums every emitted JavaScript file gzipped indivi
 docs/              Original brief, milestone plan, seed audit, M1 verification
 public/            Manifest icons and SVG favicon source
 src/data/          Bundled JSON, runtime validation and unit tests
-src/domain/        UI-independent Problem types
-src/scheduler/     M2 boundary only (no implementation)
+src/domain/        UI-independent problem, card, settings, log and undo types
+src/scheduler/     Pure scheduler, previews, calendar, queue and tests
 src/storage/       M3 boundary only (no implementation)
 src/ui/            Minimal shell and shared CSS tokens
 tests/e2e/         Production PWA and viewport tests

@@ -2,7 +2,7 @@
 
 ## Source and delivery gate
 
-Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. This task implements M1 only.
+Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`. M2 implements the approved pure scheduler and queue only; M3 is not started.
 
 ## Milestones
 
@@ -15,9 +15,9 @@ Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 Octob
 | M5 | Stats, Settings, versioned JSON export/import with validation, count preview and overwrite confirmation; double-confirm reset. Verify exact backup round trips, invalid imports, retention/forecast/maturity, configurable steps and backup reminder if feasible. |
 | M6 | Full portrait/landscape/tablet pass at all specified sizes and 320–1024 px widths. Verify safe areas on iPhone, VoiceOver/focus/contrast, offline installation, performance (1.5 s cold, 100 ms rating, Lighthouse 90+/90+), <150 KB gzip JS, deployment and final README. |
 
-## Contradictions and decisions requiring care
+## Original review findings and remaining milestone decisions
 
-These are open issues, not changed requirements. Resolve the M2 items before scheduling code is written.
+The numbered findings below preserve the original review. M2's scheduler decisions are now approved and recorded in [scheduler-decisions.md](scheduler-decisions.md), including both user amendments: retain section 7.9's early-review equations (no blanket freeze) and keep preview/application equality based on identical captured inputs (no stale-preview mechanism). Items concerning persistence, UI and accessibility remain implementation work for their milestones; they must follow that contract.
 
 1. **M2: maximum versus strict ordering.** Section 7.3 requires growth beyond the previous interval, a 180-day maximum, and `Hard < Good < Easy` after clamping. At an existing 180-day interval, these cannot all hold. Decide which invariant wins; do not silently exceed the cap or shorten Hard.
 2. **M2: early review.** Section 7.9's `max(old dueDay, today + calc)` can extend a date even for Good, whereas its test says Good leaves the date unchanged. Example: interval 10, nine days elapsed, ease 2.5 gives approximately 23 days. It also permits repeated Easy to increase ease. Define the intended non-inflation guarantee and treatment of never-reviewed new cards before adding assertions.

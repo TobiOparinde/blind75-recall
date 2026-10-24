@@ -2,13 +2,13 @@
 
 ## Project Structure & Module Organization
 
-Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` in full before implementation; it is the source of truth. Follow the approved amendments in `docs/scheduler-decisions.md` and milestone gates in `docs/implementation-plan.md`. M1/M2 are implemented; do not silently start later milestones.
+Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow `docs/scheduler-decisions.md`, `docs/persistence-contract.md` and milestone gates in `docs/implementation-plan.md`. M1–M3 are implemented; do not silently start later milestones.
 
-Use `src/ui/` for React components and CSS, `src/data/` for bundled JSON and validation, `src/domain/` for UI-independent types, and `src/scheduler/` for pure scheduling/calendar/queue functions. `src/storage/` documents M3's Dexie boundary. PWA icons live in `public/`. Colocate unit tests with modules; keep browser tests in `tests/e2e/`.
+Use `src/ui/` for React/CSS, `src/library/` for the independent controller/presentation models, `src/storage/` for Dexie/repository transactions, `src/data/` for bundled JSON/validation, and `src/domain/` for shared types/membership rules. Keep `src/scheduler/` pure. PWA icons live in `public/`. Colocate unit/component tests; keep browser tests in `tests/e2e/`.
 
 ## Build, Test, and Development Commands
 
-Use Node 22.12+ and npm; install locked dependencies with `npm ci`. Install browser engines with `npx playwright install chromium webkit`.
+Use Node 24.15+ in 24.x (other supported ranges are in `package.json`) and npm. Install locked dependencies with `npm ci` and browsers with `npx playwright install chromium webkit`.
 
 - `npm run dev`: start Vite locally.
 - `npm run typecheck`: check strict TypeScript across source, tests and configuration.
@@ -24,7 +24,7 @@ Use React 18, strict TypeScript, two-space indentation and LF endings (`.editorc
 
 ## Testing Guidelines
 
-Name Vitest files `*.test.ts` and Playwright flows `*.spec.ts`. Preserve M1's seed/PWA/browser checks and M2's transition, preview, fuzz, cap, early-review, queue, rollover/DST and 365-day simulation tests. No numeric coverage threshold is specified. Browser tests do not replace physical iPhone checks.
+Name Vitest files `*.test.ts`/`*.test.tsx` and Playwright flows `*.spec.ts`. Preserve M1/M2 checks and M3 transaction rollback, archive/restore/history, optimistic UI, confirmation, filtering, reload/offline and cross-tab tests. Use fake-indexeddb for repository tests and jsdom/Testing Library for React. No numeric coverage threshold is specified. Browser tests do not replace physical iPhone checks.
 
 ## Commit & Pull Request Guidelines
 

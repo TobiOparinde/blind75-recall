@@ -1,6 +1,6 @@
 # Blind 75 Recall
 
-An iPhone-first, offline PWA for recalling coding patterns. **M1–M4:** PWA shell, verified seed, pure scheduler, persistent Library, Today queue and review sessions with previews and one-level rating undo. Stats and full Settings/backup screens are later milestones.
+An iPhone-first, offline PWA for recalling coding patterns. **M1–M5:** PWA shell, verified seed, pure scheduler, persistent Library, Today/review sessions with one-level undo, Stats, Settings and JSON backup/import/reset. M6's final device/accessibility/performance/deployment work is not started.
 
 The source of truth is [the full build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf), supplemented by the [approved scheduler decisions](docs/scheduler-decisions.md), [persistence contract](docs/persistence-contract.md) and [review contract](docs/review-contract.md). Read the [M1–M6 plan](docs/implementation-plan.md) and [seed verification notes](docs/seed-notes.md) before extending the app.
 
@@ -33,6 +33,8 @@ src/data/          Bundled JSON, runtime validation and unit tests
 src/domain/        UI-independent problem, card, settings, log and undo types
 src/library/       Framework-independent Library controller and presentation models
 src/review/        Today/session controller, progress and preview presentation models
+src/management/    Settings form conversion, backup validation and action controller
+src/stats/         Pure forecast, retention, streak, maturity and lapse statistics
 src/scheduler/     Pure scheduler, previews, calendar, queue and tests
 src/storage/       Dexie schema, transactional repository, persistence tests
 src/ui/            Shell, Today, Review, Library, dialogs, tokens and component tests
@@ -50,10 +52,16 @@ The PNG icons are rasterizations of `public/favicon.svg`; the maskable variant u
 
 ## Local data
 
-Cards, review logs and scheduler settings live in the browser's `blind75-recall` IndexedDB database (Dexie schema v1). Ticking adds a card for tomorrow by default. Removing archives it after confirmation; ticking it again restores its schedule and history. Membership actions offer one-level Undo, guarded against later changes in another tab. Library changes work offline after the first load. No accounts or sync are implemented; JSON backup/import arrives in M5.
+Cards, review logs and scheduler settings live in the browser's `blind75-recall` IndexedDB database (Dexie schema v1). Ticking adds a card for tomorrow by default. Removing archives it after confirmation; ticking it again restores its schedule and history. Membership actions offer one-level Undo, guarded against later changes in another tab. All screens work offline after the first cached load. No accounts or sync are implemented.
 
 ## Review
 
 Today is the default screen; use `#library` to open Library directly. Start review follows the due queue, while any queue/Review early row starts that card manually. Show answer exposes links and four interval previews. Space reveals; 1–4 rate when ordinary controls are not focused. Goal hit pauses at the daily target; Keep going has no limit. Waiting cards show a countdown and explicit Show now override.
 
-Accepted ratings atomically save card+log and offer one-level Undo rating. Reload rebuilds progress from committed logs without replaying the previous attempt. After a changed day/timezone or expired learning preview, Refresh intervals keeps the answer revealed while capturing a new proposal. No Stats or Settings screen is exposed yet.
+Accepted ratings atomically save card+log and offer one-level Undo rating. Reload rebuilds progress from committed logs without replaying the previous attempt. After a changed day/timezone or expired learning preview, Refresh intervals keeps the answer revealed while capturing a new proposal.
+
+## Stats, settings and backups
+
+Stats shows current due work, stored deadlines over seven days, streak, 30-day retention, maturity, weakest categories and leeches. Open Settings through Today's gear (`#settings`). Step inputs use comma-separated minutes. Settings are validated against every stored card; incompatible caps/step lists are rejected rather than silently rewriting schedules.
+
+Use **Export JSON** and save the file outside the app. A gentle reminder appears after 30 days. **Import JSON** validates the version/data and previews counts before **Confirm overwrite** atomically replaces cards, logs and settings. Archived history and exact schedules survive the round trip. Cancel leaves data untouched. Reset requires two confirmations and returns an empty deck/default settings while keeping the Library and PWA cache. See the [management contract](docs/management-contract.md) for format, stats definitions and concurrency behavior.

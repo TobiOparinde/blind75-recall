@@ -23,7 +23,7 @@ export class ReviewConflictError extends Error {
 
 export class ReviewRepository extends LibraryRepository {
   private get stores() { return [this.database.cards, this.database.settings, this.database.metadata, this.database.reviewLogs]; }
-  private async readReviewCurrent(): Promise<ReviewSnapshot> {
+  protected async readReviewCurrent(): Promise<ReviewSnapshot> {
     const [snapshot, logs] = await Promise.all([this.readCurrent(), this.database.reviewLogs.orderBy('id').toArray()]);
     return { ...snapshot, logs };
   }

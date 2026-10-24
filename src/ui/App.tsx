@@ -1,16 +1,28 @@
 import { problems } from '../data';
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { browserLibrary, browserReview } from '../library/browser';
+import { browserLibrary, browserManagement, browserReview } from '../library/browser';
 import { Library } from './Library';
 import { Today } from './Today';
 import { Review } from './Review';
+import { Stats } from './Stats';
+import { Settings } from './Settings';
+
+const currentPage = () => ['library', 'stats', 'settings'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'today';
 
 export function App() {
   const state = useSyncExternalStore(browserReview.subscribe, browserReview.getSnapshot);
-  const [page, setPage] = useState(() => location.hash === '#library' ? 'library' : 'today');
+  const management = useSyncExternalStore(browserManagement.subscribe, browserManagement.getSnapshot);
+  const [page, setPage] = useState(currentPage);
   useEffect(() => browserReview.connect(), []);
   useEffect(() => {
-    const navigate = () => setPage(location.hash === '#library' ? 'library' : 'today');
+    void browserManagement.checkReminder();
+    const check = () => { void browserManagement.checkReminder(); };
+    const timer = setInterval(check, 60_000);
+    window.addEventListener('focus', check);
+    return () => { clearInterval(timer); window.removeEventListener('focus', check); };
+  }, []);
+  useEffect(() => {
+    const navigate = () => setPage(currentPage());
     window.addEventListener('hashchange', navigate);
     window.addEventListener('focus', browserReview.tick);
     document.addEventListener('visibilitychange', browserReview.tick);
@@ -23,6 +35,7 @@ export function App() {
   return (
     <div className={`app-shell${state.session ? ' is-review' : ''}`}>
       {!state.session && <header className="app-header"><span className="wordmark">Recall<span aria-hidden="true">.</span></span>
+        {page === 'today' && <a className="settings-link" href="#settings" aria-label="Settings"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z" /><circle cx="12" cy="12" r="3" /></svg></a>}
         {state.undo && <button type="button" disabled={state.busy || Boolean(state.error)} onClick={() => { void browserReview.undo(); }}>Undo rating</button>}</header>}
       <main className="app-content" id="main-content" aria-busy={state.busy}>
         {!state.session && <section className="welcome" aria-labelledby="app-title">
@@ -32,12 +45,16 @@ export function App() {
         {state.error && <div role="alert" className="library-error"><p>{state.error}</p><button type="button" onClick={browserReview.retry} disabled={state.busy}>Retry reviews</button></div>}
         {state.notice && <p role="status">{state.notice}</p>}
         {state.busy && <span className="sr-only" role="status">Saving review…</span>}
+        {!state.session && page === 'today' && management.backupDue && <p role="status">Time for a backup. <a href="#settings">Export your data in Settings</a> to keep a safe copy outside this app.</p>}
         {state.session ? <Review controller={browserReview} state={state} />
           : page === 'library' ? <Library controller={browserLibrary} now={state.now} timeZone={state.timeZone} />
+            : page === 'stats' ? <Stats data={state.data} now={state.now} timeZone={state.timeZone} />
+              : page === 'settings' ? <Settings controller={browserManagement} data={state.data} />
             : <Today controller={browserReview} state={state} />}
       </main>
       {!state.session && <nav className="app-navigation" aria-label="Main navigation"><a href="#today" aria-current={page === 'today' ? 'page' : undefined} onClick={(event) => { if (state.busy) event.preventDefault(); }}>Today</a>
-        <a href="#library" aria-current={page === 'library' ? 'page' : undefined} onClick={(event) => { if (state.busy) event.preventDefault(); }}>Library</a></nav>}
+        <a href="#library" aria-current={page === 'library' ? 'page' : undefined} onClick={(event) => { if (state.busy) event.preventDefault(); }}>Library</a>
+        <a href="#stats" aria-current={page === 'stats' ? 'page' : undefined} onClick={(event) => { if (state.busy) event.preventDefault(); }}>Stats</a></nav>}
     </div>
   );
 }

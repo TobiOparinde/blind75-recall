@@ -5,6 +5,7 @@ import './ui/styles/tokens.css';
 import './ui/styles/global.css';
 import './ui/styles/library.css';
 import './ui/styles/review.css';
+import './ui/styles/management.css';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Application root is missing');

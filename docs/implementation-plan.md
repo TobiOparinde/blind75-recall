@@ -2,7 +2,7 @@
 
 ## Source and delivery gate
 
-Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`; M2 in `d5133fe`; M3 in `4225de7`. M4 implements Today, sessions, transactional ratings and one-level undo as recorded in [review-contract.md](review-contract.md). M5 is not started.
+Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`; M2 in `d5133fe`; M3 in `4225de7`; M4 in `ff26c45`. M5 implements Stats, Settings, validated JSON backup/import and double-confirm reset as recorded in [management-contract.md](management-contract.md). M6 is not started.
 
 ## Milestones
 

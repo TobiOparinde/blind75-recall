@@ -2,6 +2,8 @@
 
 M4 adds Today, review sessions and rating undo to the approved M2 scheduler and M3 persistence boundary. Stats/full Settings, backup/import and deployment remain later milestones. No dependency or database schema version change is needed.
 
+This records the M4 baseline. M5 now adds Stats/Settings/backup/reset via [management-contract.md](management-contract.md); review behavior below is retained.
+
 ## Navigation and presentation
 
 The default route is Today (`#today`); Library is `#library`. Two working navigation tabs replace M3's single Library entry. The M1 shell/seed/PWA checks are retained; M3 browser setup now opens its explicit Library route, with the original assertions preserved. During review the normal navigation is replaced by the close/progress/undo bar. Closing returns to the previously selected tab (normal queue starts are on Today).

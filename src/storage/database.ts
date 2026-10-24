@@ -10,7 +10,7 @@ export interface SettingsRecord {
 }
 
 export interface MetadataRecord {
-  readonly key: 'membershipRevision';
+  readonly key: 'membershipRevision' | 'backupReminderAt';
   readonly value: number;
 }
 

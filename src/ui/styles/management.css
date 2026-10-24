@@ -1,0 +1,21 @@
+.utility-screen { max-width: var(--content-max); margin-inline: auto; }
+.stat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.stat-grid > div, .settings-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-4); }
+.stat-grid dt { color: var(--color-text-muted); }
+.stat-grid dd { margin: var(--space-2) 0 0; font-size: 1.375rem; }
+.forecast { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); padding: 0; list-style: none; }
+.forecast li { text-align: center; font-size: 0.875rem; min-width: 0; }
+.forecast-track { height: 7rem; display: flex; align-items: flex-end; margin-block: var(--space-2); background: var(--color-surface); }
+.forecast-track i { display: block; width: 100%; background: var(--color-accent); }
+.utility-list { padding: 0; list-style: none; }
+.utility-list li { display: flex; justify-content: space-between; gap: var(--space-3); padding-block: var(--space-3); border-bottom: 1px solid var(--color-border); overflow-wrap: anywhere; }
+.settings-screen fieldset { border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-4); min-width: 0; }
+.settings-screen label { display: flex; flex-direction: column; gap: var(--space-2); margin-block: var(--space-4); }
+.settings-screen input, .settings-screen select { width: 100%; min-width: 0; background: var(--color-elevated); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-2); }
+.settings-screen input[type=file] { overflow: hidden; }
+.settings-card { margin-top: var(--space-6); }
+.settings-card h3 { margin-top: 0; }
+.settings-card button { margin: var(--space-1); }
+.settings-link { margin-left: auto; display: inline-flex; min-height: var(--touch-target); min-width: var(--touch-target); justify-content: center; align-items: center; }
+.app-header { display: flex; align-items: center; gap: var(--space-2); }
+@media (max-height: 499px) and (orientation: landscape) { .app-header { flex-wrap: wrap; } }

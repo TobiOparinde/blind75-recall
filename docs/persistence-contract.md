@@ -4,6 +4,8 @@ M3 implements the Library and deck membership only. The approved M2 scheduling a
 
 This document records the M3 baseline. M4 now supplies rating/log writes and rating undo through ReviewRepository, sharing the same v1 stores and revision. See [review-contract.md](review-contract.md) for the current rating/session extension; membership behavior below is retained.
 
+M5 adds ManagementRepository for revision-guarded settings, validated atomic backup replacement and reset. The same metadata store gains optional device-only backupReminderAt; no schema migration is required. See [management-contract.md](management-contract.md) for the portable format and current management boundary.
+
 ## Database and boundaries
 
 `src/storage/database.ts` declares Dexie database `blind75-recall`, schema version 1 (native IndexedDB version 10). M1/M2 created no database, so there is no legacy data migration. Future versions must declare explicit, non-destructive migrations.

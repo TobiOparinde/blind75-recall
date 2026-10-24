@@ -5,7 +5,7 @@ import { checkbox, historyFixture, NOW, readStored, ready, row, seedStored, sett
 test.use({ timezoneId: 'UTC' });
 test.beforeEach(async ({ page }) => {
   await page.clock.setFixedTime(new Date(NOW));
-  await page.goto('/');
+  await page.goto('/#library');
   await ready(page);
 });
 
@@ -171,7 +171,7 @@ test('two tabs synchronize membership and invalidate stale local undo', async ({
   const second = await context.newPage();
   try {
     await second.clock.setFixedTime(new Date(NOW));
-    await second.goto('/');
+    await second.goto('/#library');
     await ready(second);
     await checkbox(page).click();
     await settled(page);

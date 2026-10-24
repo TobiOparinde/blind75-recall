@@ -2,6 +2,8 @@
 
 M3 implements the Library and deck membership only. The approved M2 scheduling algorithms and card/log types remain unchanged. No review-session, Today, Stats, Settings, backup or review-undo UI is implemented.
 
+This document records the M3 baseline. M4 now supplies rating/log writes and rating undo through ReviewRepository, sharing the same v1 stores and revision. See [review-contract.md](review-contract.md) for the current rating/session extension; membership behavior below is retained.
+
 ## Database and boundaries
 
 `src/storage/database.ts` declares Dexie database `blind75-recall`, schema version 1 (native IndexedDB version 10). M1/M2 created no database, so there is no legacy data migration. Future versions must declare explicit, non-destructive migrations.

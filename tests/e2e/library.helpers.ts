@@ -58,7 +58,7 @@ export function historyFixture() {
 }
 
 /** Native IndexedDB fixtures, deliberately without any production test hooks. */
-export async function seedStored(page: Page, fixture: { cards?: readonly Card[]; logs?: readonly Omit<ReviewLog, 'id'>[]; firstReview?: SchedulerSettings['firstReview'] }) {
+export async function seedStored(page: Page, fixture: { cards?: readonly Card[]; logs?: readonly Omit<ReviewLog, 'id'>[]; firstReview?: SchedulerSettings['firstReview']; settings?: Partial<SchedulerSettings> }) {
   await page.evaluate(async (fixture) => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
       const request = indexedDB.open('blind75-recall');
@@ -72,11 +72,11 @@ export async function seedStored(page: Page, fixture: { cards?: readonly Card[];
     });
     fixture.cards?.forEach((card) => transaction.objectStore('cards').put(card));
     fixture.logs?.forEach((log) => transaction.objectStore('reviewLogs').add(log));
-    if (fixture.firstReview) {
+    if (fixture.firstReview || fixture.settings) {
       const request = transaction.objectStore('settings').get('scheduler');
       request.onsuccess = () => {
         const row = request.result as SettingsRecord;
-        transaction.objectStore('settings').put({ ...row, value: { ...row.value, firstReview: fixture.firstReview } });
+        transaction.objectStore('settings').put({ ...row, value: { ...row.value, ...fixture.settings, ...(fixture.firstReview ? { firstReview: fixture.firstReview } : {}) } });
       };
     }
     const revision = transaction.objectStore('metadata').get('membershipRevision');

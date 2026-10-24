@@ -4,4 +4,4 @@
 
 Membership archives/restores records without changing review history. Settings initialize only once; first-review timing is read within each mutation transaction. No database is cleared on startup, reload or error. Future schema changes require explicit migrations. React uses the independent controller in `src/library/`; pure scheduling remains in `src/scheduler/`.
 
-M4 must implement atomic card+review-log writes, rating undo and shared revision updates using `src/domain/scheduler.ts` and `docs/scheduler-decisions.md`. M3 provides the persisted log store and read boundary but no rating flow. Library membership undo does not delete cards or log entries.
+`reviewRepository.ts` extends the shared snapshot/revision primitives for M4's atomic card+review-log writes and guarded latest-rating undo. Read `docs/review-contract.md` for captured proposals, conflict guards and recovery. No schema migration was needed. Library membership undo never deletes cards or logs; rating undo removes exactly its latest log and restores its full pre-rating card. Both invalidate older tokens through the shared revision.

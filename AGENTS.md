@@ -2,9 +2,9 @@
 
 ## Project Structure & Module Organization
 
-Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow `docs/scheduler-decisions.md`, `docs/persistence-contract.md` and milestone gates in `docs/implementation-plan.md`. M1–M3 are implemented; do not silently start later milestones.
+Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow the scheduler, persistence and review contracts in `docs/`, plus milestone gates in `docs/implementation-plan.md`. M1–M4 are implemented; do not silently start later milestones.
 
-Use `src/ui/` for React/CSS, `src/library/` for the independent controller/presentation models, `src/storage/` for Dexie/repository transactions, `src/data/` for bundled JSON/validation, and `src/domain/` for shared types/membership rules. Keep `src/scheduler/` pure. PWA icons live in `public/`. Colocate unit/component tests; keep browser tests in `tests/e2e/`.
+Use `src/ui/` for React/CSS, `src/library/` and `src/review/` for independent controllers/models, `src/storage/` for Dexie transactions, `src/data/` for seed/validation, and `src/domain/` for shared types/membership rules. Keep `src/scheduler/` pure. PWA icons live in `public/`. Colocate unit/component tests; keep browser tests in `tests/e2e/`.
 
 ## Build, Test, and Development Commands
 
@@ -24,7 +24,7 @@ Use React 18, strict TypeScript, two-space indentation and LF endings (`.editorc
 
 ## Testing Guidelines
 
-Name Vitest files `*.test.ts`/`*.test.tsx` and Playwright flows `*.spec.ts`. Preserve M1/M2 checks and M3 transaction rollback, archive/restore/history, optimistic UI, confirmation, filtering, reload/offline and cross-tab tests. Use fake-indexeddb for repository tests and jsdom/Testing Library for React. No numeric coverage threshold is specified. Browser tests do not replace physical iPhone checks.
+Name Vitest files `*.test.ts`/`*.test.tsx` and Playwright flows `*.spec.ts`. Preserve prior checks plus M4 preview identity, atomic rating/undo, soft goal, recovery, waiting/manual review, rotation and keyboard tests. Use fake-indexeddb for transactions and jsdom/Testing Library for React. No numeric coverage threshold is specified. Browser tests do not replace physical iPhone checks.
 
 ## Commit & Pull Request Guidelines
 

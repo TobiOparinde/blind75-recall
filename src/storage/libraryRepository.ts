@@ -57,7 +57,7 @@ export class LibraryRepository {
     return this.initialization;
   }
 
-  private async readCurrent(): Promise<LibrarySnapshot> {
+  protected async readCurrent(): Promise<LibrarySnapshot> {
     const [cards, settings, revision] = await Promise.all([
       this.database.cards.toArray(), this.database.settings.get('scheduler'),
       this.database.metadata.get('membershipRevision'),
@@ -80,7 +80,7 @@ export class LibraryRepository {
       this.database.metadata, () => this.readCurrent())).subscribe({ next, error });
   }
 
-  private async advanceRevision(): Promise<number> {
+  protected async advanceRevision(): Promise<number> {
     const row = await this.database.metadata.get('membershipRevision');
     if (!row || !Number.isSafeInteger(row.value) || row.value < 0 || row.value >= Number.MAX_SAFE_INTEGER) {
       throw new Error('Invalid membership revision');

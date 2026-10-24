@@ -4,6 +4,7 @@ import { App } from './ui/App';
 import './ui/styles/tokens.css';
 import './ui/styles/global.css';
 import './ui/styles/library.css';
+import './ui/styles/review.css';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Application root is missing');

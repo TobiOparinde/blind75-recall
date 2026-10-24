@@ -2,7 +2,7 @@
 
 ## Source and delivery gate
 
-Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`; M2 in `d5133fe`. M3 implements the persistent Library and membership behavior documented in [persistence-contract.md](persistence-contract.md). M4 is not started.
+Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`; M2 in `d5133fe`; M3 in `4225de7`. M4 implements Today, sessions, transactional ratings and one-level undo as recorded in [review-contract.md](review-contract.md). M5 is not started.
 
 ## Milestones
 
@@ -19,7 +19,7 @@ Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 Octob
 
 The numbered findings below preserve the original review. M2's scheduler decisions are now approved and recorded in [scheduler-decisions.md](scheduler-decisions.md), including both user amendments: retain section 7.9's early-review equations (no blanket freeze) and keep preview/application equality based on identical captured inputs (no stale-preview mechanism). Items concerning persistence, UI and accessibility remain implementation work for their milestones; they must follow that contract.
 
-M3 resolves the membership/persistence portion with a transactional Dexie v1 repository, no-delete archive/restore, settings validation, guarded Library undo and Dexie live queries across tabs. M4's rating/log writes and rating undo remain separate work; they must follow both approved contracts. No M1/M2 scheduler or seed behavior changed for M3.
+M3 resolves membership/persistence with a transactional Dexie v1 repository, no-delete archive/restore, settings validation, guarded Library undo and live queries across tabs. M4 extends that boundary without a schema migration: atomic card+log+revision writes, guarded latest-log undo, optimistic UI and committed-data recovery. M2 scheduling remains unchanged. Long-open preview handling is confined to the M4 UI and keeps the displayed result fixed until an explicit refresh.
 
 1. **M2: maximum versus strict ordering.** Section 7.3 requires growth beyond the previous interval, a 180-day maximum, and `Hard < Good < Easy` after clamping. At an existing 180-day interval, these cannot all hold. Decide which invariant wins; do not silently exceed the cap or shorten Hard.
 2. **M2: early review.** Section 7.9's `max(old dueDay, today + calc)` can extend a date even for Good, whereas its test says Good leaves the date unchanged. Example: interval 10, nine days elapsed, ease 2.5 gives approximately 23 days. It also permits repeated Easy to increase ease. Define the intended non-inflation guarantee and treatment of never-reviewed new cards before adding assertions.

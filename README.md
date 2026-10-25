@@ -9,7 +9,7 @@
 ![IndexedDB](https://img.shields.io/badge/IndexedDB-Dexie-3B82F6?style=flat-square)
 ![Playwright](https://img.shields.io/badge/Tested_with-Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 
-**Deployment:** GitHub Pages workflow ready; public site not published yet.
+**Live app:** [Open Blind 75 Recall](https://tobioparinde.github.io/blind75-recall/) — deployed on GitHub Pages.
 
 ---
 
@@ -37,6 +37,20 @@ It's designed primarily for an iPhone, but works in a browser on desktop too. Th
 
 ---
 
+## Screenshots
+
+Today, Library and Stats on iPhone:
+
+| Today | Library | Stats |
+|---|---|---|
+| <img src="docs/screenshots/iphone-today.jpg" alt="Today screen showing the daily goal and 35 problems scheduled for tomorrow" width="240"> | <img src="docs/screenshots/iphone-library-portrait.jpg" alt="Portrait Library with 35 of 75 problems completed, category groups and difficulty filters" width="240"> | <img src="docs/screenshots/iphone-stats.jpg" alt="Stats screen showing streak, retention and a seven-day forecast" width="240"> |
+
+In landscape, the navigation moves to a left rail:
+
+<img src="docs/screenshots/iphone-library-landscape.jpg" alt="Landscape Library with a left navigation rail, completion progress and filters" width="800">
+
+---
+
 ## How It Works
 
 1. **Tick completed problems** in the Library. Only ticked problems enter your review deck.
@@ -61,7 +75,7 @@ Unticking a problem archives it rather than deleting its history, so re-ticking 
 | vite-plugin-pwa / Workbox | Installation, service worker and offline caching |
 | Vitest + React Testing Library | Scheduler, storage and UI tests |
 | Playwright | Chromium and WebKit browser, viewport and offline testing |
-| GitHub Actions + Pages | Prepared static-site deployment workflow |
+| GitHub Actions + Pages | Static hosting and deployment workflow |
 
 ---
 
@@ -120,7 +134,7 @@ blind75-recall/
 │   └── ui/            # React screens and styling
 ├── tests/e2e/         # Browser and offline tests
 ├── public/            # PWA icons and assets
-├── docs/              # Build brief, contracts and verification
+├── docs/              # Build brief, contracts, verification and screenshots
 ├── scripts/           # Bundle budget checks
 └── .github/workflows/ # GitHub Pages deployment
 ```
@@ -164,16 +178,17 @@ See the [final review](docs/final-review.md) and [acceptance audit](docs/accepta
 
 ## Deployment and iPhone Installation
 
-GitHub Pages deployment is configured, but **publishing is a separate manual step**. Pushing code to GitHub alone does not make the site live.
+The app is live at [tobioparinde.github.io/blind75-recall](https://tobioparinde.github.io/blind75-recall/). To deploy an update using the included manual GitHub Pages workflow:
 
-1. Push the repository to GitHub.
-2. Open **Settings → Pages** in the repository and select **GitHub Actions** under Build and deployment.
-3. Go to **Actions → Deploy Recall to GitHub Pages → Run workflow** and select the release branch.
-4. Open the URL GitHub gives you after the workflow succeeds. For this repo, the expected project-site format is `https://tobioparinde.github.io/blind75-recall/`.
+1. Push the updated repository to GitHub.
+2. Go to **Actions → Deploy Recall to GitHub Pages → Run workflow** and select the release branch.
+3. Open the live URL after the workflow succeeds and check the update.
+
+The workflow expects **Settings → Pages → Build and deployment → GitHub Actions**. Pushing code alone does not run this manual deployment.
 
 To install on iPhone, open the published URL in **Safari → Share → Add to Home Screen**. After opening it online once and allowing the PWA to cache, test reopening it in airplane mode.
 
-**Important:** browser storage does not sync between your laptop and iPhone. Export a JSON backup on one device and import it on the other to transfer progress. Physical iPhone installation, VoiceOver, safe areas and real-device loading performance still need checking.
+**Important:** browser storage does not sync between your laptop and iPhone. Export a JSON backup on one device and import it on the other to transfer progress. Use the [physical-device checklist](docs/physical-device-checklist.md) for the remaining installation, VoiceOver, safe-area and loading-performance checks.
 
 ---
 

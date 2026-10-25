@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow the scheduler, persistence, review and management contracts in `docs/`, plus `docs/acceptance-audit.md`. M1–M6 software work is implemented; physical iPhone acceptance and owner-run GitHub publication remain pending. Preserve working behavior unless verification exposes a defect.
+Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow the scheduler, persistence, review and management contracts in `docs/`, plus `docs/acceptance-audit.md`. M1–M6 software work is implemented and the owner has deployed to GitHub Pages; remaining physical iPhone acceptance checks are tracked in `docs/physical-device-checklist.md`. Preserve working behavior unless verification exposes a defect.
 
 Use `src/ui/` for React/CSS, `src/library/`, `src/review/` and `src/management/` for independent controllers/models, `src/stats/` for pure derivation, `src/storage/` for Dexie transactions, `src/data/` for seed/validation, and `src/domain/` for shared types/membership rules. Keep `src/scheduler/` pure. PWA icons live in `public/`. Colocate unit/component tests; keep browser tests in `tests/e2e/`.
 

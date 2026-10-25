@@ -11,7 +11,7 @@
 .utility-list li { display: flex; justify-content: space-between; gap: var(--space-3); padding-block: var(--space-3); border-bottom: 1px solid var(--color-border); overflow-wrap: anywhere; }
 .settings-screen fieldset { border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-4); min-width: 0; }
 .settings-screen label { display: flex; flex-direction: column; gap: var(--space-2); margin-block: var(--space-4); }
-.settings-screen input, .settings-screen select { width: 100%; min-width: 0; background: var(--color-elevated); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-2); }
+.settings-screen input, .settings-screen select { width: 100%; min-width: 0; background: var(--color-elevated); color: var(--color-text); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: var(--space-2); }
 .settings-screen input[type=file] { overflow: hidden; }
 .settings-card { margin-top: var(--space-6); }
 .settings-card h3 { margin-top: 0; }

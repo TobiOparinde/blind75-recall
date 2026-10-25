@@ -41,7 +41,8 @@ describe('Today and Review components', () => {
     expect(screen.getByRole('link', { name: 'Open Library' }).getAttribute('href')).toBe('#library');
     await act(async () => { await repository.setCompleted(['lc-217'], true, NOW, 'UTC'); });
     await screen.findByText(/All caught up/);
-    expect(screen.getByRole('button', { name: 'Review Contains Duplicate' })).toBeTruthy();
+    fireEvent.click(screen.getByText('Review early (1)'));
+    expect(screen.getByRole('button', { name: 'Review #217 Contains Duplicate New · Due tomorrow Easy' })).toBeTruthy();
   });
 
   it('hides category and rating controls on the front, then reveals links and four previews', async () => {

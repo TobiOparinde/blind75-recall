@@ -1,9 +1,9 @@
-import { useState, useSyncExternalStore } from 'react';
+import { memo, useState, useSyncExternalStore } from 'react';
 import type { ManagementController } from '../management/controller';
 import { numericSettings, settingsFromForm } from '../management/settings';
 import type { ReviewSnapshot } from '../storage/reviewRepository';
 
-export function Settings({ controller, data }: { controller: ManagementController; data: ReviewSnapshot | null }) {
+export const Settings = memo(function Settings({ controller, data }: { controller: ManagementController; data: ReviewSnapshot | null }) {
   const state = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
   const [formError, setFormError] = useState<string | null>(null);
   if (!data) return <p role="status">Loading settings…</p>;
@@ -15,7 +15,7 @@ export function Settings({ controller, data }: { controller: ManagementControlle
     const link = document.createElement('a'); link.href = url; link.download = 'blind75-recall-backup.json';
     document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
-  return <section className="utility-screen settings-screen" aria-labelledby="settings-title"><h2 id="settings-title">Settings</h2>
+  return <section className="utility-screen settings-screen" aria-labelledby="settings-title"><h2 id="settings-title" tabIndex={-1}>Settings</h2>
     {state.error && <p role="alert">{state.error}</p>}{state.notice && <p role="status">{state.notice}</p>}
     <form key={JSON.stringify(settings)} onSubmit={(event) => {
       event.preventDefault(); setFormError(null);
@@ -45,4 +45,4 @@ export function Settings({ controller, data }: { controller: ManagementControlle
     </section>
     <section className="settings-card"><h3>Add to Home Screen</h3><p>On iPhone, open this app in Safari. Tap Share, then Add to Home Screen and Add. Launch Recall from its icon for the standalone app. After the first load, the app and backups work offline.</p></section>
   </section>;
-}
+});

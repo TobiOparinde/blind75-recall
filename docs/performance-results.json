@@ -1,0 +1,119 @@
+{
+  "note": "Real clocks, local Windows lab; not physical iPhone or 4G. Two requestAnimationFrame callbacks bound next-card paint.",
+  "browsers": [
+    {
+      "browserName": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "date": "2026-10-25T09:04:35.998Z",
+      "platform": "win32",
+      "viewport": "390x844",
+      "throttle": "none; local production server; trace disabled",
+      "historicalRatings": 5000,
+      "cards": 75,
+      "coldMs": 107.39999997615814,
+      "warmMs": 32.39999997615814,
+      "offlineMs": 26.400000035762787,
+      "samples": [
+        {
+          "domMs": 4.5,
+          "paintMs": 28.899999976158142
+        },
+        {
+          "domMs": 5.800000011920929,
+          "paintMs": 30.5
+        },
+        {
+          "domMs": 4.800000011920929,
+          "paintMs": 30.100000023841858
+        },
+        {
+          "domMs": 3.699999988079071,
+          "paintMs": 31
+        },
+        {
+          "domMs": 4.199999988079071,
+          "paintMs": 28.899999976158142
+        },
+        {
+          "domMs": 4.200000047683716,
+          "paintMs": 28.30000001192093
+        },
+        {
+          "domMs": 4.199999988079071,
+          "paintMs": 27.599999964237213
+        },
+        {
+          "domMs": 3.699999988079071,
+          "paintMs": 29.19999998807907
+        },
+        {
+          "domMs": 3.199999988079071,
+          "paintMs": 28.599999964237213
+        },
+        {
+          "domMs": 4.100000023841858,
+          "paintMs": 27.30000001192093
+        }
+      ],
+      "medianPaintMs": 28.899999976158142,
+      "p95PaintMs": 31
+    },
+    {
+      "browserName": "webkit",
+      "browserVersion": "27.2",
+      "date": "2026-10-25T09:08:18.819Z",
+      "platform": "win32",
+      "viewport": "390x844",
+      "throttle": "none; local production server; trace disabled",
+      "historicalRatings": 5000,
+      "cards": 75,
+      "coldMs": 415,
+      "warmMs": 260,
+      "offlineMs": 267,
+      "samples": [
+        {
+          "domMs": 10,
+          "paintMs": 26
+        },
+        {
+          "domMs": 6,
+          "paintMs": 25
+        },
+        {
+          "domMs": 5,
+          "paintMs": 21
+        },
+        {
+          "domMs": 6,
+          "paintMs": 21
+        },
+        {
+          "domMs": 6,
+          "paintMs": 31
+        },
+        {
+          "domMs": 5,
+          "paintMs": 20
+        },
+        {
+          "domMs": 6,
+          "paintMs": 23
+        },
+        {
+          "domMs": 5,
+          "paintMs": 24
+        },
+        {
+          "domMs": 5,
+          "paintMs": 34
+        },
+        {
+          "domMs": 5,
+          "paintMs": 22
+        }
+      ],
+      "medianPaintMs": 24,
+      "p95PaintMs": 34
+    }
+  ]
+}

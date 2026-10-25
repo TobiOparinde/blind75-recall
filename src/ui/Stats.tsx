@@ -6,7 +6,7 @@ export function Stats({ data, now, timeZone }: { data: ReviewSnapshot | null; no
   if (!data) return <p role="status">Loading stats…</p>;
   const stats = statsModel(data, problems, now, timeZone);
   const maximum = Math.max(1, ...stats.forecast.map((day) => day.count));
-  return <section className="utility-screen" aria-labelledby="stats-title"><h2 id="stats-title">Stats</h2>
+  return <section className="utility-screen" aria-labelledby="stats-title"><h2 id="stats-title" tabIndex={-1}>Stats</h2>
     <dl className="stat-grid"><div><dt>Due today</dt><dd>{stats.dueToday}</dd></div><div><dt>Streak</dt><dd>{stats.streak} days</dd></div>
       <div><dt>30-day retention</dt><dd>{stats.retention === null ? 'No reviews yet' : `${Math.round(stats.retention * 100)}%`}</dd></div></dl>
     <p>Retention: Good + Easy / all ratings across the last 30 review days ({stats.retentionReviews} ratings), including early practice and archived history.</p>

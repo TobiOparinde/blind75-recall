@@ -1,0 +1,259 @@
+{
+  "date": "2026-10-25T09:09:35.574Z",
+  "node": "v24.15.0",
+  "platform": "win32 10.0.26300 x64",
+  "cpu": "AMD Ryzen 7 6800H with Radeon Graphics         ",
+  "results": [
+    {
+      "route": "today",
+      "fetchTime": "2026-10-25T09:09:08.265Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "performance": 99,
+      "accessibility": 100,
+      "fcpMs": 1517.4283,
+      "lcpMs": 1681.9283,
+      "tbtMs": 7.5,
+      "cls": 0.01256838558342394,
+      "settings": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "disableStorageReset": false
+      },
+      "nonPerfectAudits": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.95,
+          "title": "First Contentful Paint"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "score": 0.99,
+          "title": "Largest Contentful Paint"
+        },
+        {
+          "id": "unused-javascript",
+          "score": 0,
+          "title": "Reduce unused JavaScript"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests"
+        }
+      ]
+    },
+    {
+      "route": "library",
+      "fetchTime": "2026-10-25T09:09:15.759Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "performance": 99,
+      "accessibility": 100,
+      "fcpMs": 1510.3951,
+      "lcpMs": 1660.3951,
+      "tbtMs": 59.5,
+      "cls": 0,
+      "settings": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "disableStorageReset": false
+      },
+      "nonPerfectAudits": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.96,
+          "title": "First Contentful Paint"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "score": 0.99,
+          "title": "Largest Contentful Paint"
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.89,
+          "title": "Max Potential First Input Delay"
+        },
+        {
+          "id": "unused-javascript",
+          "score": 0,
+          "title": "Reduce unused JavaScript"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "score": 0,
+          "title": "Forced reflow"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests"
+        }
+      ]
+    },
+    {
+      "route": "stats",
+      "fetchTime": "2026-10-25T09:09:23.023Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "performance": 99,
+      "accessibility": 100,
+      "fcpMs": 1511.0221,
+      "lcpMs": 1681.0221,
+      "tbtMs": 5,
+      "cls": 0,
+      "settings": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "disableStorageReset": false
+      },
+      "nonPerfectAudits": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.96,
+          "title": "First Contentful Paint"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "score": 0.99,
+          "title": "Largest Contentful Paint"
+        },
+        {
+          "id": "unused-javascript",
+          "score": 0,
+          "title": "Reduce unused JavaScript"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests"
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "fetchTime": "2026-10-25T09:09:29.901Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+      "performance": 99,
+      "accessibility": 100,
+      "fcpMs": 1511.7354,
+      "lcpMs": 1661.7354,
+      "tbtMs": 10.5,
+      "cls": 0,
+      "settings": {
+        "formFactor": "mobile",
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "disableStorageReset": false
+      },
+      "nonPerfectAudits": [
+        {
+          "id": "first-contentful-paint",
+          "score": 0.96,
+          "title": "First Contentful Paint"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "score": 0.99,
+          "title": "Largest Contentful Paint"
+        },
+        {
+          "id": "max-potential-fid",
+          "score": 0.99,
+          "title": "Max Potential First Input Delay"
+        },
+        {
+          "id": "unused-javascript",
+          "score": 0,
+          "title": "Reduce unused JavaScript"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "score": 0,
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "score": 0,
+          "title": "Render-blocking requests"
+        }
+      ]
+    }
+  ]
+}

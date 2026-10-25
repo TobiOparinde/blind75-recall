@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow the scheduler, persistence, review and management contracts in `docs/`, plus milestone gates in `docs/implementation-plan.md`. M1–M5 are implemented; do not silently start M6.
+Blind 75 Recall is an iPhone-first, offline spaced-repetition PWA. Read `docs/Blind 75 Recall Build Brief for Codex.pdf` before implementation. Follow the scheduler, persistence, review and management contracts in `docs/`, plus `docs/acceptance-audit.md`. M1–M6 software work is implemented; physical iPhone acceptance and owner-run GitHub publication remain pending. Preserve working behavior unless verification exposes a defect.
 
 Use `src/ui/` for React/CSS, `src/library/`, `src/review/` and `src/management/` for independent controllers/models, `src/stats/` for pure derivation, `src/storage/` for Dexie transactions, `src/data/` for seed/validation, and `src/domain/` for shared types/membership rules. Keep `src/scheduler/` pure. PWA icons live in `public/`. Colocate unit/component tests; keep browser tests in `tests/e2e/`.
 
@@ -17,6 +17,8 @@ Use Node 24.15+ in 24.x (other supported ranges are in `package.json`) and npm. 
 - `npm run build`: type-check, build the PWA and enforce the gzip JavaScript budget.
 - `npm run test:e2e`: test an existing production build with Playwright.
 - `npm run check`: run the full validation sequence.
+- `npm run audit`: measure mobile Lighthouse scores; reports in `.local/lighthouse/`.
+- `npm run check:deploy`: check GitHub Pages subpath assets, worker and offline navigation.
 
 ## Coding Style & Naming Conventions
 

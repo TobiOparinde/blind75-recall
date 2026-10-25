@@ -10,7 +10,8 @@ export function Review({ controller, state }: { controller: ReviewController; st
   const root = useRef<HTMLElement>(null);
   const session = state.session;
   const sessionId = session?.kind === 'card' ? session.id : 0;
-  useEffect(() => { root.current?.focus(); }, [sessionId]);
+  const revealed = session?.kind === 'card' && Boolean(session.answer);
+  useEffect(() => { root.current?.focus(); }, [sessionId, revealed]);
   useEffect(() => {
     const shortcut = (event: KeyboardEvent) => {
       if (event.defaultPrevented || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) return;
@@ -58,7 +59,7 @@ export function Review({ controller, state }: { controller: ReviewController; st
           </dl></details>
           <div className="rating-buttons">{ratings.map(([rating, label, color]) => <button key={rating} type="button" className={`rating-button rating-${color}`} disabled={disabled || expired}
             aria-label={`${label} ${previewLabel(session.answer!.previews[rating], session.answer!.now, session.settings, session.answer!.timeZone)}`}
-            onClick={() => { void controller.rate(rating); }}><span>{label}</span><span className="interval-preview">{previewLabel(session.answer!.previews[rating], session.answer!.now, session.settings, session.answer!.timeZone)}</span></button>)}</div>
+            onClick={() => { void controller.rate(rating); }}><span>{label}</span>{' '}<span className="interval-preview">{previewLabel(session.answer!.previews[rating], session.answer!.now, session.settings, session.answer!.timeZone)}</span></button>)}</div>
           </>}
       </div>
     </div>}

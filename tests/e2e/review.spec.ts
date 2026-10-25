@@ -38,7 +38,7 @@ test('Today guides an empty deck to Library and shows future/caught-up cards', a
   await today(page);
   await expect(page.getByText('All caught up. Next up tomorrow: 1 problem.')).toBeVisible();
   await page.locator('.early-queue summary').click();
-  await page.getByRole('button', { name: 'Review Contains Duplicate', exact: true }).click();
+  await page.getByRole('button', { name: 'Review #217 Contains Duplicate New · Due tomorrow Easy', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Contains Duplicate' })).toBeVisible();
 });
 
@@ -85,7 +85,7 @@ test('goal 1 highlights one pick, then Goal hit and Keep going permit additional
 
 test('queue rows start out of order and early practice follows section 7.9', async ({ page }) => {
   await seed(page, [newCard({ problemId: 'lc-217' }), newCard({ problemId: 'lc-49' })]);
-  await page.getByRole('button', { name: 'Review Group Anagrams', exact: true }).click();
+  await page.getByRole('button', { name: 'Review #49 Group Anagrams New · Due today Medium', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Group Anagrams', exact: true })).toBeVisible();
   await rate(page);
   await expect(page.getByRole('heading', { name: 'Contains Duplicate', exact: true })).toBeVisible();
@@ -95,7 +95,7 @@ test('queue rows start out of order and early practice follows section 7.9', asy
   await page.getByRole('navigation').getByRole('link', { name: 'Library', exact: true }).click();
   await seedStored(page, { cards: [card] }); await today(page);
   await page.locator('.early-queue summary').click();
-  await page.getByRole('button', { name: 'Review Contains Duplicate', exact: true }).click();
+  await page.getByRole('button', { name: 'Review #217 Contains Duplicate Due tomorrow Easy', exact: true }).click();
   await rate(page);
   const after = await readStored(page);
   expect(after.cards.find((item) => item.problemId === card.problemId)!.dueDay).toBeGreaterThan(card.dueDay);
@@ -181,12 +181,12 @@ test('undo restores the full snapshot, one log, progress and queue without expos
   expect(after.logs).toEqual(before.logs.slice(0, 1));
   await expect(page.getByRole('button', { name: 'Undo rating', exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: 'Close review' }).click();
-  await expect(page.locator('[data-queue-group="picks"]').getByRole('button', { name: 'Review Group Anagrams', exact: true })).toBeVisible();
+  await expect(page.locator('[data-queue-group="picks"]').getByRole('button', { name: 'Review #49 Group Anagrams New · Due today Medium', exact: true })).toBeVisible();
 });
 
 test('archived cards never enter the queue and another tab invalidates a selected card', async ({ page, context }) => {
   await seed(page, [newCard({ problemId: 'lc-217' }), newCard({ problemId: 'lc-49', archived: true })]);
-  await expect(page.getByRole('button', { name: 'Review Group Anagrams', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Review #49 Group Anagrams New · Due today Medium', exact: true })).toHaveCount(0);
   await start(page); await page.getByRole('button', { name: 'Show answer', exact: true }).click();
   const second = await context.newPage();
   try {

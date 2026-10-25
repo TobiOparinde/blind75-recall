@@ -11,15 +11,15 @@ export function Today({ controller, state }: { controller: ReviewController; sta
   const byId = new Map(problems.map((problem) => [problem.id, problem]));
   const rows = (cards: readonly Card[]) => <ul className="queue-list">{cards.map((card) => {
     const problem = byId.get(card.problemId)!;
-    return <li key={card.problemId}><button type="button" className="queue-row" disabled={busy || Boolean(error)} aria-label={`Review ${problem.title}`}
-      onClick={() => controller.start(card.problemId)}><span className="queue-description"><span>#{problem.lcNumber} {problem.title}</span>
-        <span className="row-status">{schedulingStatus(card, now, data.settings, timeZone)}</span></span>
+    return <li key={card.problemId}><button type="button" className="queue-row" disabled={busy || Boolean(error)}
+      onClick={() => controller.start(card.problemId)}><span className="sr-only">Review</span>{' '}<span className="queue-description"><span>#{problem.lcNumber} {problem.title}</span>{' '}
+        <span className="row-status">{schedulingStatus(card, now, data.settings, timeZone)}</span></span>{' '}
       <span className={`difficulty-badge difficulty-${problem.difficulty}`}>{problem.difficulty.charAt(0).toUpperCase() + problem.difficulty.slice(1)}</span>
     </button></li>;
   })}</ul>;
   const waiting = model.ready.length === 0 && model.nextLearningDueAt !== null;
   return <section className="today" aria-labelledby="today-title">
-    <h2 id="today-title">Today</h2>
+    <h2 id="today-title" tabIndex={-1}>Today</h2>
     <div className="today-overview">
       <div className="goal-ring" role="img" aria-label={`Daily goal: ${model.completed} of ${data.settings.dailyGoal} ratings`}>
         <svg viewBox="0 0 120 120" aria-hidden="true"><circle className="ring-track" cx="60" cy="60" r="50" />

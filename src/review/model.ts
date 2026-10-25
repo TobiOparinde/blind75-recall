@@ -2,6 +2,7 @@ import type { Problem } from '../domain/problem';
 import type { Card, ReviewLog, ScheduleResult, SchedulerSettings } from '../domain/scheduler';
 import { dayIndex } from '../scheduler/calendar';
 import { buildQueue } from '../scheduler/queue';
+import { reviewDay } from './history';
 
 export function sameValue(a: unknown, b: unknown): boolean {
   if (Object.is(a, b)) return true;
@@ -15,7 +16,7 @@ export function sameValue(a: unknown, b: unknown): boolean {
 
 export function todayModel(cards: readonly Card[], logs: readonly ReviewLog[], problems: readonly Problem[], now: number, settings: SchedulerSettings, timeZone: string) {
   const today = dayIndex(now, settings.rolloverHour, timeZone);
-  const days = logs.map((log) => dayIndex(log.ratedAt, settings.rolloverHour, timeZone));
+  const days = logs.map((log) => reviewDay(log, settings, timeZone));
   const completed = days.filter((day) => day === today).length;
   const history = new Set(days.filter((day) => day <= today));
   let streak = 0;

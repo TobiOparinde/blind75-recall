@@ -2,6 +2,7 @@ import type { Problem } from '../domain/problem';
 import type { ReviewSnapshot } from '../storage/reviewRepository';
 import { dayIndex } from '../scheduler/calendar';
 import { todayModel } from '../review/model';
+import { reviewDay } from '../review/history';
 
 /** Forecast is a snapshot of existing deadlines, not a prediction of future ratings. */
 export function statsModel(data: ReviewSnapshot, problems: readonly Problem[], now: number, timeZone: string) {
@@ -10,7 +11,7 @@ export function statsModel(data: ReviewSnapshot, problems: readonly Problem[], n
   const active = cards.filter((card) => !card.archived);
   const current = todayModel(cards, logs, problems, now, settings, timeZone);
   const recent = logs.filter((log) => {
-    const day = dayIndex(log.ratedAt, settings.rolloverHour, timeZone);
+    const day = reviewDay(log, settings, timeZone);
     return day >= today - 29 && day <= today;
   });
   const maturity = { New: 0, Learning: 0, Young: 0, Mature: 0 };

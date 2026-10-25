@@ -13,19 +13,26 @@ button { min-width: var(--touch-target); }
 a { color: var(--color-accent); }
 :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
 .app-shell {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
   height: 100vh;
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
-    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  padding: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
   touch-action: manipulation;
   overscroll-behavior: none;
 }
+.skip-link { position: fixed; top: var(--safe-top); left: var(--safe-left); transform: translateY(-200%); z-index: 10; background: var(--color-surface); padding: var(--space-3); min-height: var(--touch-target); }
+.skip-link:focus { transform: none; }
 .app-header { padding: var(--space-6); border-bottom: var(--border-width) solid var(--color-border); }
 .wordmark { font-weight: 700; font-size: var(--font-title); }
 .wordmark span { color: var(--color-accent); }
 .app-content { flex: 1; min-height: 0; overflow: auto; padding: var(--space-6); }
+.app-content:focus-visible { outline-offset: -3px; }
+.app-content > p a { display: inline-flex; align-items: center; min-height: var(--touch-target); }
 .welcome { width: 100%; max-width: var(--content-max); margin-inline: auto; overflow-wrap: anywhere; }
 .eyebrow { color: var(--color-accent); font-size: 0.875rem; }
 h1 { font-size: var(--font-title); line-height: 1.35; margin-block: var(--space-4); }

@@ -45,7 +45,7 @@ export function Library({ controller, now, timeZone }: { controller: LibraryCont
 
   return (
     <section id="library" className="library" aria-labelledby="library-title" aria-busy={state.busy}>
-      <div className="library-heading"><h2 id="library-title">Library</h2><span className="completion-count">Completed {summary.completed} / {summary.total}</span></div>
+      <div className="library-heading"><h2 id="library-title" tabIndex={-1}>Library</h2><span className="completion-count">Completed {summary.completed} / {summary.total}</span></div>
       <div className="completion-progress" role="progressbar" aria-label="Completed problems"
         aria-valuemin={0} aria-valuemax={summary.total} aria-valuenow={summary.completed}
         aria-valuetext={`${summary.completed} of ${summary.total}; Easy ${summary.byDifficulty.easy}, Medium ${summary.byDifficulty.medium}, Hard ${summary.byDifficulty.hard}`}>

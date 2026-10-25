@@ -11,7 +11,7 @@ async function javascriptFiles(directory) {
   return groups.flat();
 }
 
-const files = await javascriptFiles('dist');
+const files = await javascriptFiles(process.argv[2] || 'dist');
 if (files.length === 0) throw new Error('No built JavaScript found');
 let total = 0;
 for (const file of files) total += gzipSync(await readFile(file)).length;

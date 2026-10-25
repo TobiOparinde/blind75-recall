@@ -2,7 +2,7 @@
 
 ## Source and delivery gate
 
-Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`; M2 in `d5133fe`; M3 in `4225de7`; M4 in `ff26c45`. M5 implements Stats, Settings, validated JSON backup/import and double-confirm reset as recorded in [management-contract.md](management-contract.md). M6 is not started.
+Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 October 2026). The requested `Blind-75-Recall-Build-Brief.pdf` filename is absent; the existing PDF is preserved and authoritative. MUST/SHOULD/COULD priorities and confirmed decisions remain binding. Complete checks and make one commit per milestone before beginning the next. M1 was completed in `d7d7f1f`; M2 in `d5133fe`; M3 in `4225de7`; M4 in `ff26c45`; M5 in `1637bb6`. M6's software/automated acceptance work is recorded in [m6-verification.md](m6-verification.md). The [criterion-by-criterion audit](acceptance-audit.md) retains physical-device checks as open; GitHub publication is deferred at the owner's request.
 
 ## Milestones
 
@@ -14,6 +14,12 @@ Read all 14 pages of `Blind 75 Recall Build Brief for Codex.pdf` (v1.0, 24 Octob
 | M4 | Today picks/Up next, unlimited Keep going, arbitrary/early reviews, links-only reveal, rating previews, timer if included and one-level undo. Test repeat ratings, learning countdown, empty states, goal/streak accounting and rotation preserving session state. |
 | M5 | Stats, Settings, versioned JSON export/import with validation, count preview and overwrite confirmation; double-confirm reset. Verify exact backup round trips, invalid imports, retention/forecast/maturity, configurable steps and backup reminder if feasible. |
 | M6 | Full portrait/landscape/tablet pass at all specified sizes and 320–1024 px widths. Verify safe areas on iPhone, VoiceOver/focus/contrast, offline installation, performance (1.5 s cold, 100 ms rating, Lighthouse 90+/90+), <150 KB gzip JS, deployment and final README. |
+
+## M6 final implementation boundary
+
+All prior scheduler, persistence and management contracts remain intact. M6 fixes measured accessibility issues (visible/accessible name agreement, scroll-region/route/reveal focus, control-border contrast, answer-track collapse at 200% text), exposes testable safe-area CSS variables retaining all four env() values, and adds a bounded immutable-history calendar cache after profiling repeated Intl work. It adds no runtime dependency or schema change. Existing review name assertions now include visible number/status/difficulty; the component test expands its native details before querying the row. No scheduling assertion was removed.
+
+Final checks include WCAG-tagged axe scans, all-screen viewport/target geometry, 200% text, every integer width 320–1024, injected insets, real-clock 5000-log rating/launch measurements, Lighthouse mobile scores and root/subpath production/PWA checks. The manual-only GitHub Pages workflow follows the owner's instruction to publish later. Real iPhone install/standalone/safe areas, VoiceOver and 4G timing remain explicitly unexecuted, with a [device checklist](physical-device-checklist.md); automated success does not close those items.
 
 ## Original review findings and remaining milestone decisions
 

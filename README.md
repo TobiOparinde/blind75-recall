@@ -1,90 +1,191 @@
 # Blind 75 Recall
 
-An iPhone-first, offline PWA for recalling coding patterns. M1–M6 implementation is in place: persistent Library, pure scheduler, Today/review/undo, Stats, Settings and JSON backup/import/reset, with responsive/accessibility/performance checks and a GitHub Pages deployment workflow. Physical iPhone acceptance and publication remain explicitly pending; see the [acceptance audit](docs/acceptance-audit.md).
+> An iPhone-first spaced-repetition app for keeping LeetCode patterns fresh — built around the Blind 75, with offline reviews, progress tracking and a simple Anki-style scheduler.
 
-The subsequent [final code and iPhone readiness review](docs/final-review.md) records performance fixes, additional edge-case coverage and the latest verification results.
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-Offline_Ready-5A0FC8?style=flat-square)
+![IndexedDB](https://img.shields.io/badge/IndexedDB-Dexie-3B82F6?style=flat-square)
+![Playwright](https://img.shields.io/badge/Tested_with-Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 
-The source of truth is [the full build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf), supplemented by the [approved scheduler decisions](docs/scheduler-decisions.md), [persistence contract](docs/persistence-contract.md) and [review contract](docs/review-contract.md). Read the [M1–M6 plan](docs/implementation-plan.md) and [seed verification notes](docs/seed-notes.md) before extending the app.
+**Deployment:** GitHub Pages workflow ready; public site not published yet.
 
-## Run and check
+---
 
-Use Node.js 24.15+ in the 24.x line and npm. Supported ranges are 22.22.2+ in 22.x, 24.15+ in 24.x, or 26+. M3's jsdom test tooling sets this minimum; versions are pinned in `package-lock.json`.
+## Overview
 
-```sh
+Solving a LeetCode problem once is one thing. Remembering the pattern a few weeks later is another.
+
+I built **Blind 75 Recall** to make that second part easier. Instead of repeatedly going through the entire Blind 75, I can tick the problems I've solved, turn them into review cards and practise them again when they're due. The app uses spaced repetition to adjust the next review based on how easily I remembered the solution.
+
+It's designed primarily for an iPhone, but works in a browser on desktop too. There's no account or backend: progress is saved locally on each device, and JSON backups let me export or restore it.
+
+---
+
+## Features
+
+- **Blind 75 Library** — all 75 problems grouped by NeetCode category, with completion tracking, difficulty filters and progress.
+- **Spaced-repetition scheduler** — rate each attempt **Again, Hard, Good or Easy** to decide when it comes back. Includes learning steps, relearning, overdue reviews and early practice.
+- **Today dashboard** — see what's due, work towards a daily goal and keep going after hitting it.
+- **Review sessions** — attempt a problem before revealing links to LeetCode and NeetCode. Next-review intervals appear on the rating buttons.
+- **Undo and recovery** — undo the last rating, keep review history and pick back up after closing or reloading the app.
+- **Stats** — streak, retention, 7-day forecast, card maturity and areas that need more practice.
+- **Adjustable settings** — daily goal, review steps, day rollover and scheduling intervals.
+- **Offline PWA** — installable to an iPhone Home Screen and usable offline after the first successful load.
+- **JSON backups** — export and import your data, with validation before anything is overwritten.
+
+---
+
+## How It Works
+
+1. **Tick completed problems** in the Library. Only ticked problems enter your review deck.
+2. **Open Today** to see what is due. The daily goal is a target, not a limit.
+3. **Try to recall the approach** before pressing **Show answer** and checking LeetCode or NeetCode.
+4. **Rate your attempt** using Again, Hard, Good or Easy. The scheduler updates the next review date.
+5. **Repeat over time.** Problems you struggle with return sooner; familiar ones are spaced further apart.
+
+Unticking a problem archives it rather than deleting its history, so re-ticking it restores its previous progress.
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 18 | Component-based UI |
+| TypeScript | Strict typing across application and scheduler logic |
+| Vite | Development server and production builds |
+| CSS | Dark, LeetCode-inspired styling and responsive layouts |
+| IndexedDB + Dexie | On-device storage for cards, settings and review history |
+| vite-plugin-pwa / Workbox | Installation, service worker and offline caching |
+| Vitest + React Testing Library | Scheduler, storage and UI tests |
+| Playwright | Chromium and WebKit browser, viewport and offline testing |
+| GitHub Actions + Pages | Prepared static-site deployment workflow |
+
+---
+
+## Getting Started
+
+**Prerequisites:** Node.js 24.15+ in the 24.x line and npm. The project also supports Node 22.22.2+ in the 22.x line, or Node 26+.
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/TobiOparinde/blind75-recall.git
+cd blind75-recall
+
+# 2. Install dependencies
 npm ci
-npx playwright install chromium webkit
+
+# 3. Start the development server
 npm run dev
 ```
 
-- `npm run typecheck` — strict TypeScript, including tests and configuration.
-- `npm run lint` — ESLint and React Hooks rules; zero warnings allowed.
-- `npm test` — Vitest seed/scheduler/365-day simulations, fake-indexeddb transaction tests, presentation models and jsdom React component tests.
-- `npm run build` — type-check, generate production PWA, enforce JS budget.
-- `npm run test:e2e` — Chromium and WebKit checks against an existing `dist/` build; launches its own preview server.
-- `npm run check` — lint, unit tests, build/type checks and browser tests.
-- `npm run audit` — mobile Lighthouse Performance/Accessibility on all four routes; raw HTML/JSON reports and environment in `.local/lighthouse/`. Uses installed Chrome or Playwright Chromium; set `CHROME_PATH` if necessary. Scores below 90 fail the command.
-- `npm run check:deploy` — separately build `/blind75-recall/`, check its JS budget, manifest/icons/worker/installability, and test persisted offline routes in Chromium/WebKit. Output is `.local/pages-dist/`, leaving `dist/` intact.
-- `npm run preview` — serve production output locally; use this for offline testing. Development mode deliberately does not register a worker.
+Open the local URL shown by Vite. For production/offline behaviour, use `npm run build` followed by `npm run preview` instead; the development server deliberately doesn't register the service worker.
 
-The bundle gate conservatively sums every emitted JavaScript file gzipped individually, including service worker/Workbox, and requires **less than 150,000 bytes**.
+---
 
-## Layout
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the local development server |
+| `npm run build` | Type-check, build the PWA and enforce the JavaScript budget |
+| `npm run preview` | Preview the production build locally |
+| `npm run typecheck` | Run strict TypeScript checks |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run unit and component tests |
+| `npm run test:e2e` | Run Chromium and WebKit tests against a built app |
+| `npm run check` | Run the complete lint/test/build/browser check suite |
+| `npm run audit` | Run mobile Lighthouse checks on the four app routes |
+| `npm run check:deploy` | Test the GitHub Pages subpath, assets and offline behaviour |
+
+For local browser testing, first run `npx playwright install chromium webkit`.
+
+---
+
+## Project Structure
 
 ```text
-docs/              Brief, milestone plan, scheduler/persistence contracts, verification
-public/            Manifest icons and SVG favicon source
-src/data/          Bundled JSON, runtime validation and unit tests
-src/domain/        UI-independent problem, card, settings, log and undo types
-src/library/       Framework-independent Library controller and presentation models
-src/review/        Today/session controller, progress and preview presentation models
-src/management/    Settings form conversion, backup validation and action controller
-src/stats/         Pure forecast, retention, streak, maturity and lapse statistics
-src/scheduler/     Pure scheduler, previews, calendar, queue and tests
-src/storage/       Dexie schema, transactional repository, persistence tests
-src/ui/            Shell, Today, Review, Library, dialogs, tokens and component tests
-tests/e2e/         Production review/Library, recovery, cross-tab, offline and viewport tests
-scripts/           Build-budget check
+blind75-recall/
+├── src/
+│   ├── data/          # Blind 75 seed and validation
+│   ├── domain/        # Shared types
+│   ├── scheduler/     # Scheduling, day rollover, previews and queues
+│   ├── storage/       # Dexie database and transactions
+│   ├── library/       # Completion tracking and filters
+│   ├── review/        # Today dashboard and review sessions
+│   ├── stats/         # Streaks, retention, forecast and maturity
+│   ├── management/    # Settings, backups and reset
+│   └── ui/            # React screens and styling
+├── tests/e2e/         # Browser and offline tests
+├── public/            # PWA icons and assets
+├── docs/              # Build brief, contracts and verification
+├── scripts/           # Bundle budget checks
+└── .github/workflows/ # GitHub Pages deployment
 ```
 
-## Deploy and install
+---
 
-The owner will publish to GitHub later; no deployment has been performed. The included `.github/workflows/pages.yml` is **manual only**, so pushing the repository does not publish automatically.
+## Testing
 
-1. Create/connect your GitHub repository and push this project's committed files.
-2. In repository **Settings → Pages → Build and deployment**, choose **GitHub Actions**. Enable Actions if needed and configure the `github-pages` environment's allowed deployment branch.
-3. Open **Actions → Deploy Recall to GitHub Pages → Run workflow**, selecting the intended release branch. It installs Node 24.15, runs the complete check suite, Lighthouse and subpath smoke test, builds with the Pages-provided base path, then uploads/deploys `dist/`.
-4. Open the deployment URL shown by the workflow. Verify routes, icons, manifest/worker scope, offline reload and the [physical-device checklist](docs/physical-device-checklist.md). The workflow has not been run on GitHub in this environment.
+I wanted the scheduling to be predictable, particularly around early reviews, missed days, daylight-saving changes and undo. The scheduler is kept separate from the React UI so its behaviour can be tested directly.
 
-This supports project sites (`https://USER.github.io/REPO/`), user sites and custom domains. For local subpath reproduction in PowerShell:
+**Latest local verification:**
 
-```powershell
-$env:BASE_PATH = '/REPO/'
-npm run build
-npm run preview
-# Open http://127.0.0.1:4173/REPO/
-Remove-Item Env:BASE_PATH
-```
+| Check | Result |
+|---|---|
+| Unit and component tests | **507 passed** |
+| Browser tests | **196 passed** (Chromium + WebKit) |
+| Lighthouse Performance | **99** |
+| Lighthouse Accessibility | **100** |
+| JavaScript bundle | **103,728 bytes gzipped** (under the 150 KB budget) |
+| TypeScript, ESLint, production/PWA build | **Passed** |
 
-`BASE_PATH` defaults to `/` and must end with `/`; Vite assets, manifest id/start/scope/icons, registration and offline fallback use it together. Hash routes need no server rewrite. For another static host, build for its path, publish `dist/` over HTTPS and revalidate `sw.js`/`index.html` rather than applying immutable caching; hashed assets may be immutable. No backend, account or app secrets are needed. These steps follow the [Vite Pages guide](https://vite.dev/guide/static-deploy.html#github-pages) and [GitHub custom-workflow requirements](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+Tests also cover review transitions, persisted data, import/export, offline use, screen sizes and rotation. Lighthouse scores were measured in the automated test environment, not on a physical iPhone.
 
-Data is local to the browser origin. Export before moving from localhost or another host, then import the file at the published URL. A code deployment does not transfer local IndexedDB data.
+See the [final review](docs/final-review.md) and [acceptance audit](docs/acceptance-audit.md) for details.
 
-On iPhone, open the HTTPS deployment in Safari, choose **Share → Add to Home Screen → Add**, then launch the icon. After the first successful online load and worker activation, close and reopen offline to verify caching. New workers wait for existing windows to close, avoiding forced reloads during reviews. Physical iPhone installation, safe areas, VoiceOver and 4G timing still require the linked checklist; desktop WebKit is only an automated approximation.
+---
 
-The PNG icons are rasterizations of `public/favicon.svg`; the maskable variant uses a full dark background and inset artwork. Do not add remote fonts or icon libraries.
+## Design Decisions
 
-## Local data
+**Recall first** — the problem category stays hidden during a review. The idea is to recognise the pattern independently, rather than being given the clue immediately.
 
-Cards, review logs and scheduler settings live in the browser's `blind75-recall` IndexedDB database (Dexie schema v1). Ticking adds a card for tomorrow by default. Removing archives it after confirmation; ticking it again restores its schedule and history. Membership actions offer one-level Undo, guarded against later changes in another tab. All screens work offline after the first cached load. No accounts or sync are implemented.
+**Pure scheduler** — review calculations, interval previews and queue ordering live outside the UI. The same scheduling logic produces both the preview and the saved result.
 
-## Review
+**Offline and local by default** — IndexedDB stores cards, logs and settings on the device. No account, server or network connection is needed once the PWA is cached.
 
-Today is the default screen; use `#library` to open Library directly. Start review follows the due queue, while any queue/Review early row starts that card manually. Show answer exposes links and four interval previews. Space reveals; 1–4 rate when ordinary controls are not focused. Goal hit pauses at the daily target; Keep going has no limit. Waiting cards show a countdown and explicit Show now override.
+**History over resets** — removing a problem from the deck archives it without throwing away previous reviews. Undo restores the previous card state and review log safely.
 
-Accepted ratings atomically save card+log and offer one-level Undo rating. Reload rebuilds progress from committed logs without replaying the previous attempt. After a changed day/timezone or expired learning preview, Refresh intervals keeps the answer revealed while capturing a new proposal.
+**Mobile-first** — dark LeetCode-inspired styling, thumb-friendly controls, iPhone safe-area handling and layouts that adapt to portrait and landscape.
 
-## Stats, settings and backups
+---
 
-Stats shows current due work, stored deadlines over seven days, streak, 30-day retention, maturity, weakest categories and leeches. Open Settings through Today's gear (`#settings`). Step inputs use comma-separated minutes. Settings are validated against every stored card; incompatible caps/step lists are rejected rather than silently rewriting schedules.
+## Deployment and iPhone Installation
 
-Use **Export JSON** and save the file outside the app. A gentle reminder appears after 30 days. **Import JSON** validates the version/data and previews counts before **Confirm overwrite** atomically replaces cards, logs and settings. Archived history and exact schedules survive the round trip. Cancel leaves data untouched. Reset requires two confirmations and returns an empty deck/default settings while keeping the Library and PWA cache. See the [management contract](docs/management-contract.md) for format, stats definitions and concurrency behavior.
+GitHub Pages deployment is configured, but **publishing is a separate manual step**. Pushing code to GitHub alone does not make the site live.
+
+1. Push the repository to GitHub.
+2. Open **Settings → Pages** in the repository and select **GitHub Actions** under Build and deployment.
+3. Go to **Actions → Deploy Recall to GitHub Pages → Run workflow** and select the release branch.
+4. Open the URL GitHub gives you after the workflow succeeds. For this repo, the expected project-site format is `https://tobioparinde.github.io/blind75-recall/`.
+
+To install on iPhone, open the published URL in **Safari → Share → Add to Home Screen**. After opening it online once and allowing the PWA to cache, test reopening it in airplane mode.
+
+**Important:** browser storage does not sync between your laptop and iPhone. Export a JSON backup on one device and import it on the other to transfer progress. Physical iPhone installation, VoiceOver, safe areas and real-device loading performance still need checking.
+
+---
+
+## Documentation
+
+- [Original build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf)
+- [Implementation plan](docs/implementation-plan.md)
+- [Scheduler decisions](docs/scheduler-decisions.md)
+- [Persistence contract](docs/persistence-contract.md)
+- [Review contract](docs/review-contract.md)
+- [Physical-device checklist](docs/physical-device-checklist.md)
+
+---
+
+*Built with React + TypeScript + Vite, with Codex used to support implementation, testing and iteration.*

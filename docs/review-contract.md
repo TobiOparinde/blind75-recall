@@ -14,6 +14,8 @@ Every committed rating event counts, including early, repeated and learning rati
 
 Reaching the goal from below closes the current automatic session and shows Goal hit. Keep going starts a continuation session that serves additional ready cards without a cap. Manual rows start the chosen card out of order through the same controller and scheduler. Waiting learning never auto-promotes before due: the countdown and Show now are explicit. Once actually due, a waiting session automatically resumes the highest-priority ready card using M2's queue. Show now can override the nearest waiting step even outside the ordinary ten-minute learn-ahead window, as approved for manual selection.
 
+The waiting state is also reconciled after cross-tab changes: new ready work resumes it, while removal/reset of its last waiting card returns to Today. It cannot remain on an empty countdown screen. Rating/management transactions read full history only for their returned snapshot; undo locates the latest log through its index before applying the same revision/card guards.
+
 ## Session and preview identity
 
 `ReviewController` is independent of React and owns the selected card snapshot, attempt identity, revealed answer, captured settings, four complete previews and monotonic attempt start. Clock, timezone and monotonic time are injectable. Rotation/rerenders change layout without recreating the attempt or recomputing previews. The UI hides category on the front, exposes external LeetCode, then reveals NeetCode/LeetCode links and the four rating controls. Rating guide text follows section 7.1. No notes/complexity/solution text is introduced.

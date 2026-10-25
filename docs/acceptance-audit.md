@@ -2,6 +2,8 @@
 
 Audit date: 25 October 2026 (Europe/London). Scope: every criterion in section 12 of the build brief, including the approved scheduler amendments. Evidence is automated Chromium/WebKit production-build testing and the linked unit/model/storage tests, not physical-device testing. Exact final counts/measurements are recorded in [m6-verification.md](m6-verification.md).
 
+The subsequent [final code review](final-review.md) records additional performance/UI fixes and the latest full-suite measurements. The criterion statuses and physical-device caveats below remain unchanged.
+
 | # | Acceptance criterion | Status | Evidence and limits |
 | --- | --- | --- | --- |
 | 1 | Fresh install is an empty deck; all 75 problems have correct titles, numbers, difficulties and categories. | PASS | `src/data/validateSeed.test.ts` validates seed schema/count/membership/order; M1 live-list verification is retained in `seed-notes.md`. `tests/e2e/library.spec.ts` fresh-Library case checks 75 rows, categories and progress; Today empty-deck and M5 reset cases check empty membership. |

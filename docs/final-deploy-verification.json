@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25T10:25:06.297Z",
+  "base": "/blind75-recall/",
+  "results": [
+    {
+      "browser": "chromium",
+      "version": "156.0.8078.4",
+      "scope": "http://127.0.0.1:4177/blind75-recall/",
+      "manifest": "PASS",
+      "offlineReloadAndRoutes": "PASS",
+      "installability": {
+        "installabilityErrors": []
+      }
+    },
+    {
+      "browser": "webkit",
+      "version": "27.2",
+      "scope": "http://127.0.0.1:4177/blind75-recall/",
+      "manifest": "PASS",
+      "offlineReloadAndRoutes": "PASS",
+      "installability": null
+    }
+  ]
+}

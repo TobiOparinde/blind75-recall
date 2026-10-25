@@ -11,8 +11,8 @@ import { ready, seedStored } from './library.helpers';
 const { problems } = JSON.parse(readFileSync(new URL('../../src/data/blind75.v1.json', import.meta.url), 'utf8')) as { problems: Problem[] };
 
 test.use({ trace: 'off', timezoneId: 'UTC', viewport: { width: 390, height: 844 } });
-test('profile ready/offline launches and rating paint latency with 5000 historical ratings', async ({ page, context, browserName, browser }, info) => {
-  test.setTimeout(120_000);
+for (const historySize of [5000, 10_000]) test(`profile ready/offline launches and rating paint latency with ${historySize} historical ratings`, async ({ page, context, browserName, browser }, info) => {
+  test.setTimeout(240_000);
   const now = Date.now();
   await page.addInitScript(() => {
     const metrics = window as unknown as { auditReady?: number };
@@ -35,8 +35,8 @@ test('profile ready/offline launches and rating paint latency with 5000 historic
   await page.goto('/#library'); await ready(page);
   let card = reviewCard({ problemId: 'lc-217', dueDay: dayIndex(now, 4, 'UTC') + 90, reps: 1 });
   const logs: Omit<ReviewLog, 'id'>[] = [];
-  for (let index = 0; index < 5000; index++) {
-    const ratedAt = now - (5000 - index) * 60_000;
+  for (let index = 0; index < historySize; index++) {
+    const ratedAt = now - (historySize - index) * 60_000;
     const result = schedule(card, 3, ratedAt, DEFAULT_SETTINGS, 'UTC');
     logs.push({ problemId: card.problemId, ratedAt, rating: 3, stateBefore: card.state, intervalBefore: card.intervalDays,
       intervalAfter: result.nextCard.intervalDays, easeBefore: card.ease, easeAfter: result.nextCard.ease, durationMs: 1000, early: result.early, cardBefore: card });
@@ -71,9 +71,9 @@ test('profile ready/offline launches and rating paint latency with 5000 historic
   }
   const sorted = [...samples].sort((a, b) => a.paintMs - b.paintMs);
   const result = { browserName, browserVersion: browser.version(), date: new Date().toISOString(), platform: process.platform,
-    viewport: '390x844', throttle: 'none; local production server; trace disabled', historicalRatings: 5000, cards: 75,
+    viewport: '390x844', throttle: 'none; local production server; trace disabled', historicalRatings: historySize, cards: 75,
     coldMs, warmMs, offlineMs, samples, medianPaintMs: sorted[5]!.paintMs, p95PaintMs: sorted[9]!.paintMs };
-  await mkdir('.local', { recursive: true }); await writeFile(`.local/performance-${browserName}.json`, JSON.stringify(result, null, 2) + '\n');
+  await mkdir('.local', { recursive: true }); await writeFile(`.local/performance-${browserName}${historySize === 5000 ? '' : `-${historySize}`}.json`, JSON.stringify(result, null, 2) + '\n');
   await info.attach('performance', { body: JSON.stringify(result), contentType: 'application/json' });
   expect(result.p95PaintMs).toBeLessThan(100);
 });

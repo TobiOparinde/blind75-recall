@@ -2,6 +2,8 @@
 
 An iPhone-first, offline PWA for recalling coding patterns. M1–M6 implementation is in place: persistent Library, pure scheduler, Today/review/undo, Stats, Settings and JSON backup/import/reset, with responsive/accessibility/performance checks and a GitHub Pages deployment workflow. Physical iPhone acceptance and publication remain explicitly pending; see the [acceptance audit](docs/acceptance-audit.md).
 
+The subsequent [final code and iPhone readiness review](docs/final-review.md) records performance fixes, additional edge-case coverage and the latest verification results.
+
 The source of truth is [the full build brief](docs/Blind%2075%20Recall%20Build%20Brief%20for%20Codex.pdf), supplemented by the [approved scheduler decisions](docs/scheduler-decisions.md), [persistence contract](docs/persistence-contract.md) and [review contract](docs/review-contract.md). Read the [M1–M6 plan](docs/implementation-plan.md) and [seed verification notes](docs/seed-notes.md) before extending the app.
 
 ## Run and check

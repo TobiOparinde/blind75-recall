@@ -45,7 +45,7 @@ button:hover:not(:disabled) { background: var(--color-elevated); }
 .undo-toast > span { flex: 1 1 7rem; min-width: 0; font-size: 0.875rem; line-height: 1.5; }
 .undo-toast button { color: var(--color-accent); }
 .undo-toast .dismiss-toast { padding: 0; width: var(--touch-target); font-size: 1.25rem; }
-dialog { color: var(--color-text); background: var(--color-surface); border: var(--border-width) solid var(--color-border); border-radius: var(--radius); width: min(26rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); padding: var(--space-6); }
+dialog { color: var(--color-text); background: var(--color-surface); border: var(--border-width) solid var(--color-border); border-radius: var(--radius); inset: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left); width: min(26rem, calc(100% - var(--safe-left) - var(--safe-right) - 2rem)); max-height: calc(100vh - var(--safe-top) - var(--safe-bottom) - 2rem); max-height: calc(100dvh - var(--safe-top) - var(--safe-bottom) - 2rem); overflow: auto; overscroll-behavior: contain; padding: var(--space-6); }
 dialog::backdrop { background: #000a; }
 .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-3); }
 .dialog-actions .remove-button { color: var(--color-accent); }

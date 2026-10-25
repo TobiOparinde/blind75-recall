@@ -1,0 +1,233 @@
+{
+  "note": "Final 196-test run; real clocks, Windows localhost, no CPU/network throttle. Launch timings use an empty deck; rating timings use 75 cards and the stated history size. Not physical iPhone or 4G measurements.",
+  "browsers": [
+    {
+      "browserName": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "date": "2026-10-25T10:18:37.087Z",
+      "platform": "win32",
+      "viewport": "390x844",
+      "throttle": "none; local production server; trace disabled",
+      "historicalRatings": 5000,
+      "cards": 75,
+      "coldMs": 144.89999997615814,
+      "warmMs": 40.5,
+      "offlineMs": 51.60000002384186,
+      "samples": [
+        {
+          "domMs": 7.800000011920929,
+          "paintMs": 27.600000023841858
+        },
+        {
+          "domMs": 6.900000035762787,
+          "paintMs": 27.19999998807907
+        },
+        {
+          "domMs": 9.100000023841858,
+          "paintMs": 17.400000035762787
+        },
+        {
+          "domMs": 8.699999988079071,
+          "paintMs": 12.100000023841858
+        },
+        {
+          "domMs": 5.899999976158142,
+          "paintMs": 27.19999998807907
+        },
+        {
+          "domMs": 6.600000023841858,
+          "paintMs": 11.600000023841858
+        },
+        {
+          "domMs": 6.199999988079071,
+          "paintMs": 11.199999988079071
+        },
+        {
+          "domMs": 8.699999988079071,
+          "paintMs": 24.600000023841858
+        },
+        {
+          "domMs": 8.5,
+          "paintMs": 10.599999964237213
+        },
+        {
+          "domMs": 6.199999988079071,
+          "paintMs": 26.799999952316284
+        }
+      ],
+      "medianPaintMs": 24.600000023841858,
+      "p95PaintMs": 27.600000023841858
+    },
+    {
+      "browserName": "chromium",
+      "browserVersion": "156.0.8078.4",
+      "date": "2026-10-25T10:18:41.667Z",
+      "platform": "win32",
+      "viewport": "390x844",
+      "throttle": "none; local production server; trace disabled",
+      "historicalRatings": 10000,
+      "cards": 75,
+      "coldMs": 116.89999997615814,
+      "warmMs": 47.40000003576279,
+      "offlineMs": 39,
+      "samples": [
+        {
+          "domMs": 11,
+          "paintMs": 27
+        },
+        {
+          "domMs": 9.900000035762787,
+          "paintMs": 80.40000003576279
+        },
+        {
+          "domMs": 8.800000011920929,
+          "paintMs": 24.5
+        },
+        {
+          "domMs": 40.5,
+          "paintMs": 43.30000001192093
+        },
+        {
+          "domMs": 9.599999964237213,
+          "paintMs": 25.399999976158142
+        },
+        {
+          "domMs": 7.099999964237213,
+          "paintMs": 26.399999976158142
+        },
+        {
+          "domMs": 7.100000023841858,
+          "paintMs": 8.800000011920929
+        },
+        {
+          "domMs": 6.699999988079071,
+          "paintMs": 71
+        },
+        {
+          "domMs": 8.899999976158142,
+          "paintMs": 65.19999998807907
+        },
+        {
+          "domMs": 9.799999952316284,
+          "paintMs": 28.299999952316284
+        }
+      ],
+      "medianPaintMs": 28.299999952316284,
+      "p95PaintMs": 80.40000003576279
+    },
+    {
+      "browserName": "webkit",
+      "browserVersion": "27.2",
+      "date": "2026-10-25T10:22:23.833Z",
+      "platform": "win32",
+      "viewport": "390x844",
+      "throttle": "none; local production server; trace disabled",
+      "historicalRatings": 5000,
+      "cards": 75,
+      "coldMs": 439,
+      "warmMs": 261,
+      "offlineMs": 253,
+      "samples": [
+        {
+          "domMs": 10,
+          "paintMs": 22
+        },
+        {
+          "domMs": 7,
+          "paintMs": 31
+        },
+        {
+          "domMs": 6,
+          "paintMs": 32
+        },
+        {
+          "domMs": 6,
+          "paintMs": 32
+        },
+        {
+          "domMs": 5,
+          "paintMs": 17
+        },
+        {
+          "domMs": 5,
+          "paintMs": 17
+        },
+        {
+          "domMs": 11,
+          "paintMs": 24
+        },
+        {
+          "domMs": 18,
+          "paintMs": 34
+        },
+        {
+          "domMs": 5,
+          "paintMs": 26
+        },
+        {
+          "domMs": 9,
+          "paintMs": 33
+        }
+      ],
+      "medianPaintMs": 31,
+      "p95PaintMs": 34
+    },
+    {
+      "browserName": "webkit",
+      "browserVersion": "27.2",
+      "date": "2026-10-25T10:23:34.067Z",
+      "platform": "win32",
+      "viewport": "390x844",
+      "throttle": "none; local production server; trace disabled",
+      "historicalRatings": 10000,
+      "cards": 75,
+      "coldMs": 409,
+      "warmMs": 252,
+      "offlineMs": 263,
+      "samples": [
+        {
+          "domMs": 9,
+          "paintMs": 32
+        },
+        {
+          "domMs": 10,
+          "paintMs": 33
+        },
+        {
+          "domMs": 49,
+          "paintMs": 63
+        },
+        {
+          "domMs": 9,
+          "paintMs": 35
+        },
+        {
+          "domMs": 12,
+          "paintMs": 36
+        },
+        {
+          "domMs": 10,
+          "paintMs": 33
+        },
+        {
+          "domMs": 10,
+          "paintMs": 22
+        },
+        {
+          "domMs": 11,
+          "paintMs": 34
+        },
+        {
+          "domMs": 13,
+          "paintMs": 34
+        },
+        {
+          "domMs": 11,
+          "paintMs": 32
+        }
+      ],
+      "medianPaintMs": 34,
+      "p95PaintMs": 63
+    }
+  ]
+}

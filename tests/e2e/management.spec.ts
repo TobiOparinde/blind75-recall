@@ -54,6 +54,10 @@ test('invalid settings and incompatible schedules are rejected without mutation'
   await expect(page.getByRole('alert')).toContainText('interval'); expect(await readStored(page)).toEqual(before);
   await page.getByLabel('Learning steps (minutes)', { exact: true }).fill('1,'); await page.getByRole('button', { name: 'Save settings' }).click();
   await expect(page.getByText(/comma-separated positive/)).toBeVisible(); expect(await readStored(page)).toEqual(before);
+  await page.getByLabel('Maximum interval (days)', { exact: true }).fill('180');
+  await page.getByLabel('Learning steps (minutes)', { exact: true }).fill('144000000000');
+  await page.getByRole('button', { name: 'Save settings' }).click();
+  await expect(page.getByRole('alert')).toContainText('supported date range'); expect(await readStored(page)).toEqual(before);
 });
 test('export/import into a clean browser exactly restores cards, archived history, settings and schedules', async ({ page, browser }) => {
   const { card, log } = historyFixture();

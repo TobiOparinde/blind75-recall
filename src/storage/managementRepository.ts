@@ -1,9 +1,10 @@
 import type { SchedulerSettings } from '../domain/scheduler';
-import { DEFAULT_SETTINGS, validateSettings } from '../scheduler/config';
+import { DEFAULT_SETTINGS } from '../scheduler/config';
 import { validateCard } from '../scheduler/validateCard';
 import { validateTimestamp } from '../scheduler/calendar';
 import { validateBackup, type Backup } from '../management/backup';
 import { ReviewConflictError, ReviewRepository } from './reviewRepository';
+import { validateScheduleRange } from '../management/validateScheduleRange';
 
 export class ManagementRepository extends ReviewRepository {
   /** Device housekeeping, separate from deck revisions and backup contents. */
@@ -19,11 +20,12 @@ export class ManagementRepository extends ReviewRepository {
     });
   }
   private get managementStores() { return [this.database.cards, this.database.reviewLogs, this.database.settings, this.database.metadata]; }
-  async saveConfiguration(settings: SchedulerSettings, revision: number) {
-    const next = structuredClone(settings); validateSettings(next);
+  async saveConfiguration(settings: SchedulerSettings, revision: number, now = Date.now(), timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone) {
+    const next = structuredClone(settings);
+    validateScheduleRange(next, now, timeZone);
     await this.initialize();
     return this.database.transaction('rw', this.managementStores, async () => {
-      const current = await this.readReviewCurrent();
+      const current = await this.readCurrent();
       if (current.revision !== revision) throw new ReviewConflictError();
       current.cards.forEach((card) => validateCard(card, next));
       await this.database.settings.put({ key: 'scheduler', value: next });
@@ -31,11 +33,12 @@ export class ManagementRepository extends ReviewRepository {
       return this.readReviewCurrent();
     });
   }
-  async replaceBackup(backup: Backup, revision: number, ids: ReadonlySet<string>) {
+  async replaceBackup(backup: Backup, revision: number, ids: ReadonlySet<string>, now = Date.now(), timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone) {
     const next = structuredClone(backup); validateBackup(next, ids);
+    validateScheduleRange(next.settings, now, timeZone);
     await this.initialize();
     return this.database.transaction('rw', this.managementStores, async () => {
-      const current = await this.readReviewCurrent();
+      const current = await this.readCurrent();
       if (current.revision !== revision) throw new ReviewConflictError();
       await this.database.cards.clear();
       await this.database.reviewLogs.clear();

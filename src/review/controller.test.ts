@@ -91,6 +91,26 @@ describe('review session controller', () => {
     expect(controller.getSnapshot().data!.logs[0]?.early).toBe(true);
   });
 
+  it('leaves the waiting screen when the last waiting card is archived in another tab', async () => {
+    await database.cards.put(newCard({ problemId: 'lc-217' }));
+    await connect(); controller.start(); await revealAndRate(1);
+    expect(controller.getSnapshot().session?.kind).toBe('waiting');
+    await repository.setCompleted(['lc-217'], false, now, 'UTC');
+    await vi.waitFor(() => expect(controller.getSnapshot().session).toBeNull());
+    expect(model().activeCount).toBe(0);
+    expect(await database.reviewLogs.count()).toBe(1);
+  });
+
+  it('waiting resumes ready work added in another tab without losing existing learning', async () => {
+    await database.cards.put(newCard({ problemId: 'lc-217' }));
+    await connect(); controller.start(); await revealAndRate(1);
+    await repository.saveSettings({ ...DEFAULT_SETTINGS, firstReview: 'today' });
+    await repository.setCompleted(['lc-1'], true, now, 'UTC');
+    await vi.waitFor(() => expect(controller.getSnapshot().session).toMatchObject({ kind: 'card', card: { problemId: 'lc-1' } }));
+    expect(model().nextLearningDueAt).toBe(now + 600_000);
+    expect(await database.reviewLogs.count()).toBe(1);
+  });
+
   it('rerenders and clock changes preserve the current card, revealed answer and attempt start', async () => {
     await database.cards.put(reviewCard({ problemId: 'lc-217' }));
     await connect(); controller.start(); elapsed = 200; controller.reveal();

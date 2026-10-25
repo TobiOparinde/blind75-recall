@@ -38,7 +38,7 @@ export class ReviewRepository extends LibraryRepository {
     await this.initialize();
     if (!Number.isSafeInteger(command.durationMs) || command.durationMs < 0) throw new RangeError('Invalid rating duration');
     return this.database.transaction('rw', this.stores, async () => {
-      const current = await this.readReviewCurrent();
+      const current = await this.readCurrent();
       const card = current.cards.find((card) => card.problemId === command.cardBefore.problemId);
       if (current.revision !== command.revision || !card || card.archived || !sameCard(card, command.cardBefore)
         || !sameValue(current.settings, command.settings)) throw new ReviewConflictError();
@@ -59,8 +59,8 @@ export class ReviewRepository extends LibraryRepository {
   async undoRating(token: RatingUndo): Promise<ReviewSnapshot> {
     await this.initialize();
     return this.database.transaction('rw', this.stores, async () => {
-      const current = await this.readReviewCurrent();
-      const log = current.logs.at(-1);
+      const current = await this.readCurrent();
+      const log = await this.database.reviewLogs.orderBy('id').last();
       const card = current.cards.find((card) => card.problemId === token.cardAfter.problemId);
       if (current.revision !== token.revision || !log || log.id !== token.logId || log.problemId !== card?.problemId
         || log.cardBefore.problemId !== log.problemId || log.cardBefore.archived

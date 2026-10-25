@@ -18,6 +18,8 @@ M3's conservative compatibility rule remains binding: reject caps below existing
 
 Settings saves, imports and reset require the revision captured by their UI action/preview. All cards, logs, settings and revision participate in one transaction. A conflicting write requires a fresh action/preview; a stale confirmation cannot erase another tab's work. Live queries refresh every screen and invalidate prior membership/rating undo tokens.
 
+The final code review adds a representability check at the captured save/import time: every configured step must produce a valid UTC timestamp, and today plus the interval cap must remain an exact safe integer. Invalid extremes are rejected before writes, without imposing a new ordinary scheduling limit. Import busy state begins before reading the selected file, so a slow read cannot be overtaken by a second selection, settings save or reset.
+
 ## Portable JSON format
 
 The envelope is `{ format: 'blind75-recall', schemaVersion: 1, settings, cards, reviewLogs }`. It includes all cards (archived too), exact log IDs and complete pre-rating snapshots, plus all scheduler settings. Keys are sorted recursively, cards by problem ID and logs by ID. Identical persisted deck/history/settings produce byte-identical JSON. Times remain UTC integers; no timezone conversion or scheduler replay occurs.

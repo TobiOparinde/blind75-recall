@@ -41,6 +41,7 @@ export class ReviewController {
     return { kind: 'card', id: ++this.sessionId, card, settings, continuing, started: this.monotonic(), answer: null };
   }
   private validSession(session: ReviewSession | null, data: ReviewSnapshot): ReviewSession | null {
+    if (session?.kind === 'waiting') return this.nextSession(data, session.continuing);
     if (session?.kind !== 'card') return session;
     const card = data.cards.find((card) => card.problemId === session.card.problemId);
     return card && !card.archived && sameCard(card, session.card) && sameValue(data.settings, session.settings) ? session : null;
@@ -78,8 +79,7 @@ export class ReviewController {
     const now = this.clock(); const timeZone = this.zone();
     let session = this.state.session;
     if (session?.kind === 'waiting' && this.state.data && !this.state.busy) {
-      const next = todayModel(this.state.data.cards, this.state.data.logs, this.problems, now, this.state.data.settings, timeZone).ready[0];
-      if (next) session = this.cardSession(next, this.state.data.settings, session.continuing);
+      session = this.nextSession(this.state.data, session.continuing);
     }
     this.update({ now, timeZone, session });
   };

@@ -73,6 +73,18 @@ describe('M5 transactional management', () => {
     await expect(repository.saveConfiguration({ ...before.settings, learningSteps: [60_000] }, before.revision)).rejects.toThrow('stepIndex');
     expect(await repository.reviewSnapshot()).toEqual(before);
   });
+  it.each([
+    { learningSteps: [8_640_000_000_000_000] },
+    { relearningSteps: [600_000, 8_640_000_000_000_000] },
+    { maxIntervalDays: Number.MAX_SAFE_INTEGER },
+  ])('rejects unrepresentable settings and imports without replacing data: %j', async (changes) => {
+    const before = await populate();
+    const settings = { ...before.settings, ...changes };
+    await expect(repository.saveConfiguration(settings, before.revision, NOW, 'UTC')).rejects.toThrow(/range/);
+    const backup = { ...parseBackup(exportBackup(before), ids), settings };
+    await expect(repository.replaceBackup(backup, before.revision, ids, NOW, 'UTC')).rejects.toThrow(/range/);
+    expect(await repository.reviewSnapshot()).toEqual(before);
+  });
   it('preserves valid historical snapshots after step/cap settings change', async () => {
     await database.settings.put({ key: 'scheduler', value: { ...DEFAULT_SETTINGS, learningSteps: [60_000, 120_000] } });
     const card = learningCard({ stepIndex: 1 }); await database.cards.put(card);

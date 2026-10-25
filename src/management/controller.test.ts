@@ -44,6 +44,31 @@ describe('management action controller', () => {
     await repo.saveConfiguration({ ...DEFAULT_SETTINGS, dailyGoal: 1 }, data.revision);
     await controller.confirmImport(); expect(controller.getSnapshot().error).toContain('changed'); expect((await repo.reviewSnapshot()).settings.dailyGoal).toBe(1);
   });
+  it('locks management actions before reading an import file and prevents overlapping selections', async () => {
+    const before = await repo.reviewSnapshot();
+    let finish!: (text: string) => void;
+    const first = controller.prepareImport(() => new Promise((resolve) => { finish = resolve; }));
+    expect(controller.getSnapshot().busy).toBe(true);
+    const secondRead = vi.fn().mockResolvedValue(exportBackup(before));
+    await controller.prepareImport(secondRead);
+    expect(secondRead).not.toHaveBeenCalled();
+    controller.beginReset(before.revision);
+    await controller.save({ ...DEFAULT_SETTINGS, dailyGoal: 1 }, before.revision);
+    expect(controller.getSnapshot().resetStage).toBe(0);
+    expect(await repo.reviewSnapshot()).toEqual(before);
+    finish(exportBackup({ ...before, cards: [newCard()] })); await first;
+    expect(controller.getSnapshot().busy).toBe(false);
+    expect(controller.getSnapshot().preview?.backup.cards).toHaveLength(1);
+    expect(await repo.reviewSnapshot()).toEqual(before);
+  });
+  it('reports a failed import file read without changing data or retaining a preview', async () => {
+    const before = await repo.reviewSnapshot();
+    await controller.prepareImport(() => Promise.reject(new Error('File could not be read')));
+    expect(controller.getSnapshot().error).toBe('File could not be read');
+    expect(controller.getSnapshot().busy).toBe(false);
+    expect(controller.getSnapshot().preview).toBeNull();
+    expect(await repo.reviewSnapshot()).toEqual(before);
+  });
   it('guards duplicate clicks while an action is pending and reports a failed write', async () => {
     let reject!: (error: Error) => void;
     vi.spyOn(repo, 'saveConfiguration').mockReturnValue(new Promise((_, fail) => { reject = fail; }));
